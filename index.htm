@@ -8,14 +8,853 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/output.css" />
 </head>
 
 <body>
-    <header>
-    </header>
-    <main></main>
-    <footer></footer>
+    <header></header>
+    <main class="bg-[#f2f2f2] font-noto">
+        <section id="kateqoriyalar" class="max-w-[1200px] mx-auto">
+            <div class="container px-[15px] mx-auto">
+                <p class="text-[#ff8300] text-[14px] text-right mb-[15px]">Hamısına bax</p>
+                <ul
+                    class="hidden uppercase max-md:flex justify-center items-center flex-wrap text-[12px] text-[#333] h-[40px]">
+                    <li>
+                        <span class="px-[5px] cursor-pointer hover:text-[#ff8300]">meyvə</span>
+                    </li>
+                    <li>
+                        <span class="px-[5px] cursor-pointer hover:text-[#ff8300]">quru meyvələr</span>
+                    </li>
+                    <li>
+                        <span class="px-[5px] cursor-pointer hover:text-[#ff8300]">səhər yeməkləri</span>
+                    </li>
+                    <li>
+                        <span class="px-[5px] cursor-pointer hover:text-[#ff8300]">nescake</span>
+                    </li>
+                    <li>
+                        <span class="px-[5px] cursor-pointer hover:text-[#ff8300]">yalniz neptunda</span>
+                    </li>
+                </ul>
+                <div class="flex max-mlg:flex-col gap-y-4 gap-x-2">
+                    <div class="swiper swipperHiddenCategory max-md:hidden mlg:max-w-[375px] mlg:min-w-[375px] h-auto">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide rounded-[50%]">
+                                <div class="relative">
+                                    <div
+                                        class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
+                                        <p class="mb-[10px]">Kateqoriyalar:</p>
+                                        <p>Yalnız Neptunda</p>
+                                    </div>
+                                    <img src="img/yalnizNeptun.jpg" alt="photo" class="mlg:!w-[375px]" />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative">
+                                    <div
+                                        class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
+                                        <p class="mb-[10px]">Kateqoriyalar:</p>
+                                        <p>Yalnız Neptunda</p>
+                                    </div>
+                                    <img src="img/yalnizNeptun.jpg" alt="photo" class="mlg:!w-[375px]" />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative">
+                                    <div
+                                        class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
+                                        <p class="mb-[10px]">Kateqoriyalar:</p>
+                                        <p>Yalnız Neptunda</p>
+                                    </div>
+                                    <img src="img/yalnizNeptun.jpg" alt="photo" class="mlg:!w-[375px]" />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative">
+                                    <div
+                                        class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
+                                        <p class="mb-[10px]">Kateqoriyalar:</p>
+                                        <p>Yalnız Neptunda</p>
+                                    </div>
+                                    <img src="img/yalnizNeptun.jpg" alt="photo" class="mlg:!w-[375px]" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    <div class="swiper swipperCategory h-auto">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide !flex !justify-start">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="endirimli_mehsullar" class="max-w-[1200px] mx-auto">
+            <div class="container px-[15px] mx-auto">
+                <div class="mt-[50px] mb-[15px] flex justify-between items-center">
+                    <p class="text-[14px] font-bold">Endirimli məhsullar</p>
+                    <p class="text-[#ff8300] text-[14px] cursor-pointer">Hamısına bax</p>
+                </div>
+                <div>
+                    <div class="swiper swipperDiscount h-auto">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide !flex !justify-start">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="best_seller" class="max-w-[1200px] mx-auto">
+            <div class="container px-[15px] mx-auto">
+                <div class="mt-[50px] mb-[15px] flex justify-between items-center">
+                    <p class="text-[14px] font-bold">Ən çox satılanlar</p>
+                    <p class="text-[#ff8300] text-[14px] cursor-pointer">Hamısına bax</p>
+                </div>
+                <div>
+                    <div class="swiper swipperBestSeller h-auto">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide !flex !justify-start">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative w-full">
+                                    <img src="img/slider1.png" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] font-[600] text-center mb-5">neptun 500ml cam
+                                        temizleyici</p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-5">1.80₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold">1</span>
+                                        <span class="text-[11px] ml-1">Ədəd</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <button
+                                        class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə
+                                        at</button>
+                                    <i
+                                        class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="best_seller" class="max-w-[1200px] mx-auto py-[50px] md:py-[70px]">
+            <div class="container m-auto px-[15px]">
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-[10px] justify-center md:justify-between">
+                    <div class="cursor-pointer">
+                        <img src="img/freshmaker.png" alt="photo">
+                    </div>
+                    <div class="cursor-pointer">
+                        <img src="img/payman.png" alt="photo">
+                    </div>
+                    <div class="cursor-pointer">
+                        <img src="img/joyful.png" alt="photo">
+                    </div>
+                    <div class="cursor-pointer">
+                        <img src="img/pfanner.png" alt="photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contactOperator">
+            <div class="fixed w-[60px] h-[60px] cursor-pointer bg-[#ff8300] right-[20px] bottom-[20px] rounded-full grid place-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32px" fill="currentColor" width="32px" role="img"
+                    alt="Söhbət ikonu" aria-labelledby="openIconTitle openIconDesc" class="tawk-min-chat-icon text-white">
+                    <title id="openIconTitle">Opens Chat</title>
+                    <desc id="openIconDesc">This icon Opens the chat window.</desc>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M400 26.2c-193.3 0-350 156.7-350 350 0 136.2 77.9 254.3 191.5 312.1 15.4 8.1 31.4 15.1 48.1 20.8l-16.5 63.5c-2 7.8 5.4 14.7 13 12.1l229.8-77.6c14.6-5.3 28.8-11.6 42.4-18.7C672 630.6 750 512.5 750 376.2c0-193.3-156.7-350-350-350zm211.1 510.7c-10.8 26.5-41.9 77.2-121.5 77.2-79.9 0-110.9-51-121.6-77.4-2.8-6.8 5-13.4 13.8-11.8 76.2 13.7 147.7 13 215.3.3 8.9-1.8 16.8 4.8 14 11.7z">
+                    </path>
+                </svg>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h1>Xezer</h1>
+        <h1>Xezer</h1>
+        <h1>Xezer</h1>
+        <h1>Xezer</h1>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swipper.js"></script>
 </body>
 
 </html>
