@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29.344" height="18.688" viewBox="0 0 29.344 18.688">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="arrow" class="cls-1" d="M620,840l9,9m-9,9,9-9m-29,0h29" transform="translate(-600 -839.656)"/>
+</svg>
