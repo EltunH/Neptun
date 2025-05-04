@@ -1,5 +1,3 @@
-
-
 async function getAllProductsFetch(limit = 20, page = 4) {
     const res = await fetch(`${configObject.base}/products?limit=${limit}&page=${page}`)
     return res.json()
@@ -24,3 +22,10 @@ async function getDiscFetch() {
     const res = await fetch(`${configObject.base}/products/discounted`)
     return res.json()
 }
+
+async function getCategoryById(id = 1) {
+    const res = await fetch(`${configObject.base}/products/category/${id}`)
+    return await res.json()
+}
+
+export { getAllProductsFetch, getAllProductsIdFetch, getCategoriesFetch, getPopulyarFetch, getDiscFetch, getCategoryById }

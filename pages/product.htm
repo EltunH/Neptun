@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="../src/output.css" />
+</head>
+
+<body>
+    <header class="p-4 bg-gray-400 text-gray-800">
+        <div class="container flex justify-between h-16 mx-auto">
+            <a rel="noopener noreferrer" href="/index.htm" aria-label="Back to homepage" class="flex items-center p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32"
+                    class="w-8 h-8 dark:text-red-600">
+                    <path
+                        d="M27.912 7.289l-10.324-5.961c-0.455-0.268-1.002-0.425-1.588-0.425s-1.133 0.158-1.604 0.433l0.015-0.008-10.324 5.961c-0.955 0.561-1.586 1.582-1.588 2.75v11.922c0.002 1.168 0.635 2.189 1.574 2.742l0.016 0.008 10.322 5.961c0.455 0.267 1.004 0.425 1.59 0.425 0.584 0 1.131-0.158 1.602-0.433l-0.014 0.008 10.322-5.961c0.955-0.561 1.586-1.582 1.588-2.75v-11.922c-0.002-1.168-0.633-2.189-1.573-2.742zM27.383 21.961c0 0.389-0.211 0.73-0.526 0.914l-0.004 0.002-10.324 5.961c-0.152 0.088-0.334 0.142-0.53 0.142s-0.377-0.053-0.535-0.145l0.005 0.002-10.324-5.961c-0.319-0.186-0.529-0.527-0.529-0.916v-11.922c0-0.389 0.211-0.73 0.526-0.914l0.004-0.002 10.324-5.961c0.152-0.090 0.334-0.143 0.53-0.143s0.377 0.053 0.535 0.144l-0.006-0.002 10.324 5.961c0.319 0.185 0.529 0.527 0.529 0.916z">
+                    </path>
+                    <path
+                        d="M22.094 19.451h-0.758c-0.188 0-0.363 0.049-0.515 0.135l0.006-0.004-4.574 2.512-5.282-3.049v-6.082l5.282-3.051 4.576 2.504c0.146 0.082 0.323 0.131 0.508 0.131h0.758c0.293 0 0.529-0.239 0.529-0.531v-0.716c0-0.2-0.11-0.373-0.271-0.463l-0.004-0.002-5.078-2.777c-0.293-0.164-0.645-0.26-1.015-0.26-0.39 0-0.756 0.106-1.070 0.289l0.010-0.006-5.281 3.049c-0.636 0.375-1.056 1.055-1.059 1.834v6.082c0 0.779 0.422 1.461 1.049 1.828l0.009 0.006 5.281 3.049c0.305 0.178 0.67 0.284 1.061 0.284 0.373 0 0.723-0.098 1.027-0.265l-0.012 0.006 5.080-2.787c0.166-0.091 0.276-0.265 0.276-0.465v-0.716c0-0.293-0.238-0.529-0.529-0.529z">
+                    </path>
+                </svg>
+            </a>
+            <ul class="items-stretch hidden space-x-3 lg:flex">
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#"
+                        class="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-red-600 dark:border-red-600">Link</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#"
+                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#"
+                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#"
+                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
+                </li>
+            </ul>
+            <div class="items-center flex-shrink-0 hidden lg:flex">
+                <button class="self-center px-8 py-3 rounded">Sign in</button>
+                <button class="self-center px-8 py-3 font-semibold rounded dark:bg-red-600 dark:text-gray-50">Sign
+                    up</button>
+            </div>
+            <button class="p-4 lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6 dark:text-gray-800">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="bg-[#f2f2f2]">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="container mx-auto px-[15px]">
+                <div class="text-[13px] text-[#6c6c6c] py-[35px] font-[600] flex gap-x-2 flex-wrap">
+                    <span class="cursor-pointer">Ana səhifə</span>
+                    <span>></span>
+                    <span class="cursor-pointer">Meyvə, tərəvəz, quru meyvə</span>
+                    <span>></span>
+                    <span class="cursor-pointer">Meyvə</span>
+                </div>
+                <div>
+                    <div onclick="sideFiltr()"
+                        class="slm:hidden w-[40px] rounded-lg text-white grid place-items-center h-[30px] cursor-pointer bg-[#ff8300] hover:bg-[#de7200] transition-all duration-300">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div> 
+                <div id="sideHiddenDiv" onclick="sideFiltr()" class="fixed hidden inset-0 bg-[#0000004b] z-[99]"></div>
+                <div class="slm:flex justify-between items-start">
+                    <div id="sideLeftDiv"
+                        class="max-slm:max-w-[300px] max-slm:w-full text-[11px] z-[999] font-bold max-slm:fixed left-[-100%] top-0 bottom-0 bg-white max-slm:p-[10px_15px] slm:rounded-[7px] slm:min-w-[235px] mlg:min-w-[290px] transition-all duration-500">
+                        <div class="text-right slm:hidden">
+                            <i onclick="sideFiltr()"
+                                class="fa-solid fa-xmark cursor-pointer text-[16px] hover:text-red-600 p-[2px]"></i>
+                        </div>
+                        <p class="pb-2 slm:p-[10px_8px]">Filtr</p>
+                        <div onclick="prodSideFiltr('productSideAltDiv', 'productSideAltI')"
+                            class="flex justify-between items-center px-2 cursor-pointer py-[10px]">
+                            <span>Alt kateqoriya</span>
+                            <i id="productSideAltI" class="fa-solid fa-chevron-up text-[9px]"></i>
+                        </div>
+                        <div id="productSideAltDiv" class="p-[5px_10px_15px]"></div>
+                        <hr />
+                        <div onclick="prodSideFiltr('productSideMarkaDiv', 'productSideMarkaI')"
+                            class="flex justify-between items-center px-2 cursor-pointer py-[10px]">
+                            <span>Markası</span>
+                            <i id="productSideMarkaI" class="fa-solid fa-chevron-up text-[9px]"></i>
+                        </div>
+                        <div id="productSideMarkaDiv" class="p-[5px_10px_15px]"></div>
+                        <hr />
+                        <div onclick="prodSideFiltr('productSideQiymDiv', 'productSideQiymI')"
+                            class="flex justify-between items-center px-2 cursor-pointer py-[10px]">
+                            <span>Qiymət</span>
+                            <i id="productSideQiymI" class="fa-solid fa-chevron-up text-[9px]"></i>
+                        </div>
+                        <div id="productSideQiymDiv" class="p-[5px_10px_15px]">
+                            <div class="font-normal flex items-center justify-between py-1">
+                                <span>0 ₼</span>
+                                <span>21 ₼</span>
+                            </div>
+                            <input type="range" min="0" max="22" value="0" class="w-full" />
+                        </div>
+                        <hr />
+                        <div class="p-5">
+                            <button
+                                class="px-[21px] h-[24px] grid place-items-center text-white mx-auto rounded-[15px] bg-[#ff8300]">Hamısını
+                                sıfırla</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="md:flex gap-x-3 justify-end md:pr-[20px]">
+                            <div class="flex items-center max-md:m-[10px_0_16px]">
+                                <span class="text-[11px] min-w-[50px]">Sırala:</span>
+                                <select
+                                    class="max-md:w-full h-[38px] w-[236px] rounded-[24px] p-[9px_10px] text-[11px] font-bold outline-none">
+                                    <option>Əsas</option>
+                                    <option>Əsas</option>
+                                    <option>Əsas</option>
+                                    <option>Əsas</option>
+                                    <option>Əsas</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-[11px] min-w-[50px]">Göstər:</span>
+                                <select
+                                    class="max-md:w-full h-[38px] w-[70px] rounded-[24px] p-[9px_10px] text-[11px] font-bold outline-none">
+                                    <option>12</option>
+                                    <option>25</option>
+                                    <option>50</option>
+                                    <option>75</option>
+                                    <option>100</option>
+                                </select>
+                            </div>
+                            <div class="max-md:mt-[16px]">
+                                <button
+                                    class="bg-[#ff8300] w-full h-[38px] group rounded-[24px] text-white text-[11px] px-[11px] flex items-center justify-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="group-hover:rotate-[180deg] transition-all duration-300" width="16.29"
+                                        height="20.912" viewBox="0 0 16.29 20.912">
+                                        <path id="vs" class="cls-1"
+                                            d="M1330.59,145a8.161,8.161,0,0,1-2.32,5.744c-0.09.085-.17,0.171-0.26,0.252a0.256,0.256,0,0,0-.03.028c-0.06.059-.13,0.116-0.19,0.173-0.03.026-.06,0.052-0.09,0.076a0.226,0.226,0,0,1-.02.013,7.592,7.592,0,0,1-1.08.764c-0.09.056-.19,0.111-0.29,0.164a7.073,7.073,0,0,1-.67.319l-0.25.1a0.484,0.484,0,0,1-.06.022c-0.1.035-.19,0.068-0.29,0.1s-0.19.059-.29,0.085c-0.04.013-.09,0.026-0.14,0.037s-0.13.035-.2,0.05c-0.04.009-.07,0.018-0.11,0.025-0.09.019-.18,0.037-0.27,0.052a0.068,0.068,0,0,1-.02,0c-0.11.022-.23,0.04-0.34,0.053s-0.23.028-.35,0.037l1.69,1.6a0.336,0.336,0,0,1,.01.466,0.31,0.31,0,0,1-.45.017l-2.18-2.057-0.08-.077a0.331,0.331,0,0,1-.1-0.229,0.384,0.384,0,0,1,.08-0.236l0.11-.116,1.98-2.2a0.31,0.31,0,0,1,.24-0.107,0.35,0.35,0,0,1,.22.088,0.335,0.335,0,0,1,.01.465l-1.55,1.726c0.03,0,.07-0.007.1-0.011,0.08-.009.16-0.018,0.24-0.029,0.12-.015.23-0.035,0.35-0.057,0.1-.019.21-0.041,0.31-0.067a0.025,0.025,0,0,0,.02,0c0.11-.026.22-0.054,0.33-0.087s0.19-.057.29-0.09a0.661,0.661,0,0,0,.07-0.026c0.1-.031.19-0.068,0.28-0.1,0.07-.026.14-0.055,0.2-0.083,0.15-.061.29-0.129,0.43-0.2l0.21-.114c0.03-.018.06-0.035,0.09-0.055,0.08-.039.15-0.081,0.22-0.124a0.027,0.027,0,0,1,.01-0.009,1.131,1.131,0,0,0,.13-0.088c0.16-.1.31-0.207,0.46-0.321,0.07-.055.14-0.109,0.21-0.168a7.492,7.492,0,0,0,.92-0.914c0.04-.046.07-0.092,0.11-0.138,0.02-.028.05-0.055,0.07-0.083a1.315,1.315,0,0,1,.1-0.127,0.313,0.313,0,0,1,.05-0.072c0.03-.048.07-0.1,0.1-0.145a1.266,1.266,0,0,0,.1-0.146c0.03-.05.07-0.1,0.1-0.151a7.541,7.541,0,0,0,.7-1.456,1.185,1.185,0,0,0,.06-0.173c0.02-.057.04-0.116,0.06-0.175s0.03-.111.05-0.168c0.05-.18.09-0.361,0.13-0.547,0.01-.046.02-0.092,0.03-0.14,0.02-.1.03-0.2,0.05-0.31,0-.051.01-0.1,0.01-0.153,0.02-.121.03-0.243,0.04-0.366,0-.056.01-0.114,0.01-0.17,0.01-.12.01-0.241,0.01-0.363a7.537,7.537,0,0,0-2.14-5.277l0.46-.468A8.164,8.164,0,0,1,1330.59,145Zm-13.54,5.744a8.272,8.272,0,0,1,0-11.489c0.08-.085.17-0.17,0.26-0.251,0.01-.009.02-0.02,0.03-0.028a2.46,2.46,0,0,1,.19-0.173c0.03-.031.07-0.061,0.1-0.09,0.16-.135.33-0.262,0.5-0.382,0.09-.07.19-0.136,0.29-0.2,0.06-.037.12-0.074,0.17-0.111s0.11-.066.16-0.1c0.07-.04.14-0.077,0.2-0.112s0.1-.05.15-0.074,0.12-.061.18-0.092,0.11-.053.16-0.077,0.12-.054.18-0.078c0.04-.018.08-0.033,0.12-0.051s0.08-.032.13-0.048a1,1,0,0,1,.11-0.044c0.03-.008.05-0.017,0.08-0.026,0.07-.026.14-0.052,0.21-0.074,0.1-.031.2-0.061,0.3-0.088,0.04-.013.09-0.026,0.13-0.037,0.07-.017.14-0.035,0.21-0.05,0.04-.011.08-0.02,0.12-0.028s0.1-.02.15-0.029c0.08-.015.16-0.028,0.24-0.041,0.04-.007.09-0.016,0.14-0.02s0.08-.013.12-0.017c0.07-.009.14-0.018,0.21-0.025,0.04,0,.07-0.008.11-0.01l-1.69-1.6a0.336,0.336,0,0,1-.02-0.465,0.321,0.321,0,0,1,.46-0.018l2.17,2.058,0.08,0.076a0.338,0.338,0,0,1,.11.23V137.2a0.32,0.32,0,0,1-.09.227l-0.1.116-1.98,2.2a0.333,0.333,0,0,1-.24.107,0.32,0.32,0,0,1-.22-0.087,0.337,0.337,0,0,1-.02-0.466l1.56-1.723c-0.02,0-.04,0-0.06,0s-0.03,0-.05.005c-0.08.009-.16,0.017-0.24,0.028-0.11.016-.23,0.035-0.34,0.057s-0.21.042-.31,0.068a0.076,0.076,0,0,0-.04.011c-0.11.024-.21,0.05-0.31,0.081s-0.2.057-.29,0.089c-0.02.009-.05,0.016-0.07,0.027-0.1.033-.19,0.068-0.28,0.1-0.07.026-.14,0.054-0.21,0.083a6.852,6.852,0,0,0-.63.315c-0.05.024-.09,0.048-0.13,0.072-0.16.094-.32,0.194-0.47,0.3-0.05.031-.09,0.064-0.14,0.095s-0.11.085-.17,0.128-0.14.112-.21,0.169a7.353,7.353,0,0,0-.92.914,1.146,1.146,0,0,0-.11.138c-0.02.026-.05,0.054-0.07,0.083a1.308,1.308,0,0,1-.1.126,0.3,0.3,0,0,1-.05.073c-0.03.046-.07,0.1-0.1,0.144a1.194,1.194,0,0,0-.1.147c-0.03.05-.07,0.1-0.1,0.15a7.55,7.55,0,0,0-.7,1.457,0.621,0.621,0,0,0-.06.172c-0.02.06-.04,0.117-0.06,0.176s-0.03.111-.05,0.168c-0.05.179-.09,0.361-0.13,0.547-0.01.045-.02,0.091-0.03,0.14-0.02.1-.03,0.2-0.05,0.31a0.823,0.823,0,0,1-.02.153c-0.01.12-.02,0.243-0.03,0.365,0,0.057-.01.114-0.01,0.171-0.01.12-.01,0.24-0.01,0.363a7.528,7.528,0,0,0,2.14,5.274Z"
+                                            transform="translate(-1314.51 -134.544)"></path>
+                                    </svg>
+                                    Müqayisə et
+                                </button>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="container py-[10px] slm:pl-[10px] mx-auto space-y-8">
+                            <div class="grid grid-cols-1 gap-x-4 gap-y-8 mini:grid-cols-2 md:grid-cols-3 slm:grid-cols-4">
+                                <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
+                                    <img src="../img/testjpg.jpg" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] h-[30px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
+                                        <a href="#" class="cursor-pointer hover:text-[#ff8300]">MVT.ALMA FUDJI KG</a>
+                                    </p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">4.49₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold px-3">1</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                                        <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-solid fa-retweet"></i>
+                                        </button>
+                                    </div>
+                                </article>
+                                <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
+                                    <img src="../img/testjpg.jpg" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] h-[30px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
+                                        <a href="#" class="cursor-pointer hover:text-[#ff8300]">MVT.ALMA FUDJI KG</a>
+                                    </p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">4.49₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold px-3">1</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                                        <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-solid fa-retweet"></i>
+                                        </button>
+                                    </div>
+                                </article>
+                                <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
+                                    <img src="../img/testjpg.jpg" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] h-[30px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
+                                        <a href="#" class="cursor-pointer hover:text-[#ff8300]">MVT.ALMA FUDJI KG</a>
+                                    </p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">4.49₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold px-3">1</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                                        <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-solid fa-retweet"></i>
+                                        </button>
+                                    </div>
+                                </article>
+                                <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
+                                    <img src="../img/testjpg.jpg" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
+                                    <p class="uppercase text-[10px] h-[30px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
+                                        <a href="#" class="cursor-pointer hover:text-[#ff8300]">MVT.ALMA FUDJI KG</a>
+                                    </p>
+                                    <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">4.49₼</p>
+                                    <div class="flex justify-center items-center">
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                                        <span class="text-[12px] font-bold px-3">1</span>
+                                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                                    </div>
+                                    <div class="flex justify-center items-center gap-2 flex-wrap">
+                                        <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                                            <i class="fa-solid fa-retweet"></i>
+                                        </button>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="contactOperator">
+            <div
+                class="fixed w-[60px] z-[9999] h-[60px] cursor-pointer bg-[#ff8230] right-[24px] bottom-[20px] rounded-full grid place-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32px" fill="currentColor"
+                    width="32px" role="img" alt="Söhbət ikonu" aria-labelledby="openIconTitle openIconDesc"
+                    class="tawk-min-chat-icon text-white">
+                    <title id="openIconTitle">Opens Chat</title>
+                    <desc id="openIconDesc">This icon Opens the chat window.</desc>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M400 26.2c-193.3 0-350 156.7-350 350 0 136.2 77.9 254.3 191.5 312.1 15.4 8.1 31.4 15.1 48.1 20.8l-16.5 63.5c-2 7.8 5.4 14.7 13 12.1l229.8-77.6c14.6-5.3 28.8-11.6 42.4-18.7C672 630.6 750 512.5 750 376.2c0-193.3-156.7-350-350-350zm211.1 510.7c-10.8 26.5-41.9 77.2-121.5 77.2-79.9 0-110.9-51-121.6-77.4-2.8-6.8 5-13.4 13.8-11.8 76.2 13.7 147.7 13 215.3.3 8.9-1.8 16.8 4.8 14 11.7z">
+                    </path>
+                </svg>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#ff8300] relative overflow-x-hidden group">
+        <div class="max-w-[1526px] mx-auto p-[24px_30px_32px]">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="text-white hidden mini:block absolute top-[15%] right-[-237px] md:right-[-168px] md:top-[14%] slm:top-[7%] mlg:group-hover:right-[-200px] transition-all duration-300"
+                width="442.03" height="565" fill="currentColor" viewBox="0 0 442.03 565">
+                <path id="symbol" class="cls-1"
+                    d="M1220.94,3035.86a168.127,168.127,0,0,0-101.87,34.66c-25.9-22.53-59.57-35.53-98.41-35.53h-11.23A60.72,60.72,0,0,0,949,3095.65c0,32.93,26.763,60.66,60.429,60.66h11.23c21.58,0,31.94,18.19,31.94,37.26v172.44a60.907,60.907,0,0,0,61.29,60.66c33.67,0,60.44-27.73,60.44-60.66V3206.57c0-26,21.58-47.66,47.48-47.66s47.48,21.66,47.48,47.66v159.44c0,32.93,26.76,60.66,60.43,60.66a60.916,60.916,0,0,0,61.3-60.66V3206.57C1390.15,3111.25,1314.18,3035.86,1220.94,3035.86Zm-107.91,442.81a60.655,60.655,0,1,1-60.43,60.66A60.536,60.536,0,0,1,1113.03,3478.67Zm215.83,0a60.655,60.655,0,1,1-60.43,60.66A60.543,60.543,0,0,1,1328.86,3478.67Z"
+                    transform="translate(-949 -3035)"></path>
+            </svg>
+            <div class="flex items-start md:items-center md:w-[83%]">
+                <div
+                    class="w-[20%] max-md:w-[33%] group/inner text-white text-[11px] pr-[27px] flex max-mlg:flex-col gap-y-1 items-center justify-start font-bold">
+                    <img src="../img/ftr_img1.svg" alt="footerImage"
+                        class="mlg:mr-[26px] group-hover/inner:scale-[1.1] transition-all duration-300" />
+                    <span class="max-mlg:text-center">Pulsuz çatdırılma <br /> 50 azn-dən yuxarı</span>
+                </div>
+                <div
+                    class="w-[20%] max-md:w-[33%] group/inner text-white text-[11px] pr-[27px] flex max-mlg:flex-col gap-y-1 items-center justify-start font-bold">
+                    <img src="../img/ftr_img2.svg" alt="footerImage"
+                        class="mlg:mr-[26px] group-hover/inner:scale-[1.1] transition-all duration-300" />
+                    <span class="max-mlg:text-center">Nağd və ya <br /> kartla ödəniş</span>
+                </div>
+                <div
+                    class="w-[20%] max-md:w-[33%] group/inner text-white text-[11px] pr-[27px] flex max-mlg:flex-col gap-y-1 items-center justify-start font-bold">
+                    <img src="../img/ftr_img3.svg" alt="footerImage"
+                        class="mlg:mr-[26px] group-hover/inner:scale-[1.1] transition-all duration-300" />
+                    <span class="max-mlg:text-center">Hədiyyə <br /> kuponları</span>
+                </div>
+                <div
+                    class="w-[20%] max-md:hidden group/inner text-white text-[11px] pr-[27px] flex max-mlg:flex-col gap-y-1 items-center justify-start font-bold">
+                    <img src="../img/ftr_img4.svg" alt="footerImage"
+                        class="mlg:mr-[26px] group-hover/inner:scale-[1.1] transition-all duration-300" />
+                    <span class="max-mlg:text-center">Onlayn <br /> müştəri xidmətləri</span>
+                </div>
+                <div
+                    class="w-[20%] max-md:hidden group/inner text-white text-[11px] pr-[27px] flex max-mlg:flex-col gap-y-1 items-center justify-start font-bold">
+                    <img src="../img/ftr_img5.svg" alt="footerImage"
+                        class="mlg:mr-[26px] group-hover/inner:scale-[1.1] transition-all duration-300" />
+                    <span class="max-mlg:text-center">Sürətli <br /> mobil mağaza</span>
+                </div>
+            </div>
+            <div class="p-[30px_0_18px]"></div>
+            <div class="slm:flex">
+                <p class="text-[11px] text-white py-[15px] font-bold slm:w-[151px]">Bizə abunə olun</p>
+                <div
+                    class="bg-white slm:ml-[27px] relative z-10 h-[44px] max-mini:w-full max-md:w-[63vw] md:w-[374px] slm:w-[300px] mlg:w-[337px] flex pr-[1px] justify-between items-center rounded-[20px] overflow-hidden">
+                    <input class="p-[5px_15px] h-full outline-none text-[#9f99a6] w-full text-[12px]" type="text"
+                        placeholder="e-poçt ünvanınız..." />
+                    <button
+                        class="bg-[#ff8300] rounded-[20px] hover:bg-[#e17400] hover:scale-105 transition-all duration-300 px-4 text-[14px] text-nowrap text-white font-bold h-[42px]">Abunə
+                        ol</button>
+                </div>
+            </div>
+            <div class="slm:flex mt-5">
+                <p class="text-[11px] text-white py-[15px] font-bold slm:w-[151px]">Sms xəbərdarlıq üçün</p>
+                <div class="flex items-center slm:pl-[27px]">
+                    <select class="text-[12px] h-[44px] text-[#999] outline-none rounded-[20px] p-[5px_15px]">
+                        <option>---</option>
+                        <option>050</option>
+                        <option>051</option>
+                        <option>055</option>
+                        <option>070</option>
+                        <option>077</option>
+                    </select>
+                    <div
+                        class="bg-white ml-[15px] relative z-10 h-[44px] max-mini:w-full max-md:w-[49vw] md:w-[283px] slm:w-[258px] mlg:w-[246px] flex pr-[1px] justify-between items-center rounded-[20px] overflow-hidden">
+                        <input
+                            class="p-[5px_15px] h-full outline-none text-[#9f99a6] w-full text-[12px] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                            type="number" placeholder="XXX YY ZZ" />
+                        <button
+                            class="bg-[#ff8300] rounded-[20px] hover:bg-[#e17400] hover:scale-105 transition-all duration-300 px-4 text-[14px] text-nowrap text-white font-bold h-[42px]">Abunə
+                            ol</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slm:flex mt-5">
+                <p class="text-[11px] text-white pt-2 font-bold slm:w-[151px]">Bizi izləyin</p>
+                <div class="flex items-center max-slm:pt-[5px] slm:pl-[27px]">
+                    <a href="#"
+                        class="bg-white rounded-full text-[20px] w-[40px] h-[40px] flex justify-center items-center mr-[9px] text-[#ff8300] hover:bg-[#dd7200] hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white rounded-full text-[25px] w-[40px] h-[40px] flex justify-center items-center mr-[9px] text-[#ff8300] hover:bg-[#dd7200] hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white rounded-full text-[25px] w-[40px] h-[40px] flex justify-center items-center mr-[9px] text-[#ff8300] hover:bg-[#dd7200] hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white rounded-full text-[20px] w-[40px] h-[40px] flex justify-center items-center mr-[9px] text-[#ff8300] hover:bg-[#dd7200] hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="openUlDiv"
+                class="my-5 md:flex items-start gap-x-5 max-md:max-h-0 max-md:overflow-hidden transition-all duration-1000">
+                <ul class="text-white max-md:pt-3 text-[13px] capitalize">
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">haqqımızda</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">siyasətimiz</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">yeniliklər</a>
+                    </li>
+                </ul>
+
+                <ul class="text-white max-md:pt-3 text-[13px] capitalize">
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Aksiyalar</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Kampaniyalar</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Neptun bonus kart</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Elektron kataloq</a>
+                    </li>
+                </ul>
+                <ul class="text-white max-md:pt-3 text-[13px] capitalize">
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Mağazalarımız</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">İrad və təkliflər</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Alıcıların nəzərinə</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Partnyorluq</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Supermarketdə reklam</a>
+                    </li>
+                </ul>
+                <ul class="text-white max-md:pt-3 text-[13px] capitalize">
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Karyera</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">İşə qəbul proseduru</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">Vakansiyalar</a>
+                    </li>
+                    <li class="my-[11px] pl-1">
+                        <span>></span>
+                        <a href="#" class="hover:text-[#f0f0f0]">CV yerləşdirin</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="md:hidden">
+                <span id="changeSp" onclick="openFtrUl()"
+                    class="inline-block text-white text-[13px] border-b border-dotted border-b-[white] cursor-pointer">Daha
+                    çox</span>
+            </div>
+            <div class="h-[150px] flex items-center">
+                <img src="../img/download_(2)[1].png" alt="gtr_logo" class="w-[220px] cursor-pointer" />
+            </div>
+            <p class="text-white text-[13px] mt-[17px]">© 2003 - 2023 Neptun Supermarket. All rights reserved</p>
+            <div class="text-white text-[13px] mt-2 flex items-center gap-2">
+                <span>Created by:</span>
+                <img src="../img/amiroff.png"
+                    class="w-[68px] cursor-pointer brightness-0 invert hover:brightness-100 hover:invert-0 transition-all duration-300"
+                    alt="ftr_logo" />
+            </div>
+        </div>
+        <div class="h-[80px] py-[22px] bg-white">
+            <img src="../img/ftr_visa.svg" class="mx-auto max-h-[36px]" alt="ftr_visa" />
+        </div>
+
+    </footer>
+
+    <script src="../js/footer.js"></script>
+    <script src="../js/product.js"></script>
+</body>
+
+</html>

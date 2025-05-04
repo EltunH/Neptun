@@ -61,10 +61,10 @@ let swiperHidden = new Swiper(".swipperHiddenCategory", {
     el: ".swiper-pagination",
     clickable: true,
   },
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 3500,
+  //   disableOnInteraction: false,
+  // },
   spaceBetween: 10,
   breakpoints: {
     768: {
