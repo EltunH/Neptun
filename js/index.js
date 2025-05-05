@@ -5,6 +5,7 @@ const categoryDiv = document.getElementById("categoryDiv");
 const productsCategory = document.getElementById("productsCategory");
 const productsCategorySec = document.getElementById("productsCategorySec");
 const bestSellerDiv = document.getElementById("bestSellerDiv");
+const testUl = document.getElementById("testUl");
 
 const categoryProductImg = [
     'https://cdn.myikas.com/images/11ee5840-85b0-4d70-9b56-6b324f30871e/272de7d2-93fb-419e-8d07-8cbfea9b7d58/image_1080.jpg',
@@ -41,11 +42,24 @@ function showCategories() {
                             </div>
                             <img src="${categoryProductImg[i]}" alt="photo" class="mlg:!w-[375px] max-mlg:!h-[324px] object-cover" />
                         </div>
-                    </div>`
+                    </div>`;
                 productsCategorySec.innerHTML += `
                     <option value="${idElement - 1}" class="p-[5px]">
                         ${item.categoryName}
-                    </option>`
+                    </option>`;
+
+                    // test---------------------------------------------------------
+                    
+                testUl.innerHTML += `
+                    <li class="w-[200px] cursor-pointer group relative py-3 px-2">
+                        <p>${item.categoryName} ></p>
+                        <ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
+                            <li class="py-3 px-2">
+                                ${item.subcategory.map(sub => {return `<a href="pages/product.htm?id=${sub.id}" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`}).join('')}
+                            </li>
+                        </ul>
+                    </li>
+                `
             })
 
             swiperHidden.on('slideChange', swipper => {
