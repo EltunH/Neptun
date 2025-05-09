@@ -48,16 +48,17 @@ function showCategories() {
                         ${item.categoryName}
                     </option>`;
 
-                    // test---------------------------------------------------------
-                    
+                // test---------------------------------------------------------
+
                 testUl.innerHTML += `
                     <li class="w-[200px] cursor-pointer group relative py-3 px-2">
-                        <p>${item.categoryName} ></p>
-                        <ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
-                            <li class="py-3 px-2">
-                                ${item.subcategory.map(sub => {return `<a href="pages/product.htm?id=${sub.id}" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`}).join('')}
-                            </li>
-                        </ul>
+                        <p>${item.categoryName}></p>
+                        ${item.subcategory.length ? 
+                            `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
+                                <li class="py-3 px-2">
+                                    ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`).join('')}
+                                </li>
+                            </ul>` : ''}
                     </li>
                 `
             })

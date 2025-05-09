@@ -33,4 +33,18 @@ async function getSubCategoryId(id, limit = 12, page = 1) {
     return await res.json()
 }
 
-export { getAllProductsFetch, getAllProductsIdFetch, getCategoriesFetch, getPopulyarFetch, getDiscFetch, getCategoryById, getSubCategoryId }
+async function getProductId(id) {
+    const res = await fetch(`${configObject.base}/products/${id}`)
+    return await res.json()
+}
+
+export {
+    getAllProductsFetch,
+    getAllProductsIdFetch,
+    getCategoriesFetch,
+    getPopulyarFetch,
+    getDiscFetch,
+    getCategoryById,
+    getSubCategoryId,
+    getProductId
+}

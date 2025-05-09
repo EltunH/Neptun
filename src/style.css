@@ -60,7 +60,7 @@
     background: white !important;
 }
 
-.swipperCompanies .swiper-pagination-bullet{
+.swipperCompanies .swiper-pagination-bullet {
     background: white;
     opacity: 1;
     height: 8px;
@@ -110,5 +110,5 @@ input[type="range"]::-webkit-slider-thumb {
     background: #FF6800;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
