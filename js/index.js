@@ -27,11 +27,13 @@ const categoryProductImg = [
 ];
 
 let idElement = 1;
-let activeSlie = 1;
+let activeSlide = 1;
 
 function showCategories() {
+    // slideLoader("productsCategory")
     getCategoriesFetch()
         .then(data => {
+            categoryDiv.innerHTML = ''
             data.map((item, i) => {
                 categoryDiv.innerHTML += `
                     <div id="${idElement++}" class="swiper-slide rounded-lg overflow-hidden">
@@ -53,8 +55,8 @@ function showCategories() {
                 testUl.innerHTML += `
                     <li class="w-[200px] cursor-pointer group relative py-3 px-2">
                         <p>${item.categoryName}></p>
-                        ${item.subcategory.length ? 
-                            `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
+                        ${item.subcategory.length ?
+                        `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
                                 <li class="py-3 px-2">
                                     ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`).join('')}
                                 </li>
@@ -66,7 +68,8 @@ function showCategories() {
             swiperHidden.on('slideChange', swipper => {
                 if (window.innerWidth > 768) {
                     const activeElement = swipper.slides[swipper.activeIndex].id
-                    if (activeElement != activeSlie) {
+                    console.log(activeSlide)
+                    if (activeElement != activeSlide) {
                         getCategoryById(activeElement)
                             .then(data => {
                                 productsCategory.innerHTML = ''
@@ -79,7 +82,7 @@ function showCategories() {
                                         </div>`
                             })
                     }
-                    activeSlie = activeElement
+                    activeSlide = activeElement
                 }
             })
         })
@@ -100,15 +103,20 @@ window.changeCategoryOption = (self) => {
         })
 }
 
-getCategoryById(1)
+
+// ------------TEST---------------------
+getCategoryById()
     .then(data => {
         productsCategory.innerHTML = ''
         slideShow("productsCategory", data.products)
     });
+//--------------------------------------
+
 
 function showDiscount() {
     getDiscFetch()
         .then(data => {
+            discDiv.innerHTML = ''
             data.products.map(item => {
                 discDiv.innerHTML += `
                     <div class="swiper-slide rounded-lg overflow-hidden h-auto">

@@ -14,17 +14,18 @@ const params = new URLSearchParams(location.search)
 const myCatId = params.get('id')
 
 let page = params.get('page') || 1
-let limit = 12
+let limit = params.get('limit') || 12
+limitSelect.value = limit
 
 let countPage = 0
 window.clickPage = (arg) => {
     productLoad()
     if (countPage !== 0) {
         params.set('page', arg)
+        params.set('limit', limit)
         const newUrl = `${location.pathname}?${params.toString()}`
         history.pushState(null, "", newUrl)
         page = arg
-        console.log(arg)
     }
     countPage++
     getCatProdct()
@@ -33,7 +34,22 @@ window.clickPage = (arg) => {
 window.changeLimit = () => {
     productLoad()
     limit = +limitSelect.value
+    getSubCategoryId(params.get('id'), limit, page)
+        .then(data => btnChangePage(data.totalPages))
     getCatProdct()
+}
+
+window.btnChangePage = (arg) => {
+    pageBtn.innerHTML = ''
+    let arrBtn = Array(arg).fill('').map((_, i) => i + 1)
+    $('#pageBtn').pagination({
+        dataSource: arrBtn,
+        pageSize: 1,
+        pageNumber: page,
+        callback: function (data, pagination) {
+            clickPage(pagination.pageNumber)
+        }
+    })
 }
 
 window.getCatProdct = (arg) => {
@@ -79,22 +95,9 @@ window.showCatProdct = () => {
     })
 }
 
-window.btnChangePage = (arg) => {
-    pageBtn.innerHTML = ''
-    let arrBtn = Array(arg).fill('').map((_, i) => i + 1)
-    $('#pageBtn').pagination({
-        dataSource: arrBtn,
-        pageSize: 1,
-        pageNumber: page,
-        callback: function (data, pagination) {
-            clickPage(pagination.pageNumber)
-        }
-    })
-}
-
 window.productLoad = () => {
     prodContent.innerHTML = ''
-    Array(limit).fill('').map(_ => {
+    Array(+limit).fill('').map(_ => {
         prodContent.innerHTML += `
             <article class="relative w-full animate-pulse rounded-[8px] p-[0_10px_17px] bg-white">
                 <img src="https://neptun.az/image/cache/logo-270x270.png?v=9" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
