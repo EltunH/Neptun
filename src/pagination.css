@@ -1,0 +1,26 @@
+.paginationjs .paginationjs-pages li {
+    border: 1px solid #ccc;
+    margin-inline: 4px;
+    overflow: hidden;
+    a {
+        font-size: 11px;
+        min-width: 28px;
+        height: 28px;
+    }
+    a:hover {
+        background: #ff8300;
+        color: white;
+    }
+}
+
+.paginationjs .paginationjs-pages li.active {
+    border: 1px solid #ff8300 !important;
+    border-color: #ff8300 !important;
+
+    a {
+        height: 28px;
+        width: 28px;
+        background: transparent !important;
+        color: #ff8300;
+    }
+}
