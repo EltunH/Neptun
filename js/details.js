@@ -5,15 +5,11 @@ const detailsContent = document.getElementById('detailsContent')
 
 const paramDetail = new URLSearchParams(location.search)
 const detailId = paramDetail.get('id')
-const detailPage = paramDetail.get('page')
+// const detailPage = paramDetail.get('page')
 
-function getDetails() {
-    getProductId(detailId)
-        .then(data => {
-            showDetails(data)
-        })
-}
-getDetails()
+getProductId(detailId)
+    .then(data => showDetails(data))
+
 
 function showDetails(data) {
     smallMenu.innerHTML = `
@@ -21,7 +17,7 @@ function showDetails(data) {
         <span>></span>
         <a href="#" class="cursor-pointer">${data.category.categoryName}</a>
         <span>></span>
-        <a href="/pages/product.htm?id=${data.subcategory.id}&page=${detailPage}" class="cursor-pointer">${data.subcategory.categoryName.charAt(0).toUpperCase() + data.subcategory.categoryName.slice(1)}</a>
+        <a href="/pages/product.htm?id=${data.subcategory.id}&page=1&limit=12" class="cursor-pointer">${data.subcategory.categoryName.charAt(0).toUpperCase() + data.subcategory.categoryName.slice(1)}</a>
         <span>></span>
         <span href="#">${data.name}</span>`
 

@@ -70,11 +70,11 @@ window.showCatProdct = () => {
     data.forEach(item => {
         prodContent.innerHTML += `
             <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
-                <a href="details.htm?id=${item.id}&page=${page}">
+                <a href="details.htm?id=${item.id}">
                     <img src="${item.img[0]}" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
                 </a>
                 <p class="uppercase text-[10px] h-[30px] mt-[10px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
-                    <a href="details.htm?id=${item.id}&page=${page}" class="cursor-pointer hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
+                    <a href="details.htm?id=${item.id}" class="cursor-pointer hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                 </p>
                 <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">${item.price}₼</p>
                 <div class="flex justify-center items-center">

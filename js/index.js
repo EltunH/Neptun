@@ -29,65 +29,61 @@ const categoryProductImg = [
 let idElement = 1;
 let activeSlide = 1;
 
-function showCategories() {
-    // slideLoader("productsCategory")
-    getCategoriesFetch()
-        .then(data => {
-            categoryDiv.innerHTML = ''
-            data.map((item, i) => {
-                categoryDiv.innerHTML += `
-                    <div id="${idElement++}" class="swiper-slide rounded-lg overflow-hidden">
-                        <div class="relative rounded- h-full">
-                            <div class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
-                                <p class="mb-[10px]">Kateqoriyalar:</p>
-                                <p>${item.categoryName}</p>
-                            </div>
-                            <img src="${categoryProductImg[i]}" alt="photo" class="mlg:!w-[375px] max-mlg:!h-[324px] object-cover" />
+getCategoriesFetch()
+    .then(data => {
+        categoryDiv.innerHTML = ''
+        data.map((item, i) => {
+            categoryDiv.innerHTML += `
+                <div id="${idElement++}" class="swiper-slide rounded-lg overflow-hidden">
+                    <div class="relative rounded- h-full">
+                        <div class="absolute top-0 left-0 text-[18px] p-[19px] rounded-[8px_0_25px_0] bg-[#29292991] text-white">
+                            <p class="mb-[10px]">Kateqoriyalar:</p>
+                            <p>${item.categoryName}</p>
                         </div>
-                    </div>`;
-                productsCategorySec.innerHTML += `
-                    <option value="${idElement - 1}" class="p-[5px]">
-                        ${item.categoryName}
-                    </option>`;
+                        <img src="${categoryProductImg[i]}" alt="photo" class="mlg:!w-[375px] max-mlg:!h-[324px] object-cover" />
+                    </div>
+                </div>`;
+            productsCategorySec.innerHTML += `
+                <option value="${idElement - 1}" class="p-[5px]">
+                    ${item.categoryName}
+                </option>`;
 
-                // test---------------------------------------------------------
+            // test---------------------------------------------------------
 
-                testUl.innerHTML += `
-                    <li class="w-[200px] cursor-pointer group relative py-3 px-2">
-                        <p>${item.categoryName}></p>
-                        ${item.subcategory.length ?
-                        `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
-                                <li class="py-3 px-2">
-                                    ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`).join('')}
-                                </li>
-                            </ul>` : ''}
-                    </li>
-                `
-            })
-
-            swiperHidden.on('slideChange', swipper => {
-                if (window.innerWidth > 768) {
-                    const activeElement = swipper.slides[swipper.activeIndex].id
-                    console.log(activeSlide)
-                    if (activeElement != activeSlide) {
-                        getCategoryById(activeElement)
-                            .then(data => {
-                                productsCategory.innerHTML = ''
-                                slideShow("productsCategory", data.products)
-                            })
-                            .catch(_ => {
-                                productsCategory.innerHTML = `
-                                        <div class="w-full h-full grid place-items-center bg-white">
-                                            <span class='text-red-600 text-[24px] py-3'>Bu kateqoriyaya uyğun məhsul tapılmadı</span>
-                                        </div>`
-                            })
-                    }
-                    activeSlide = activeElement
-                }
-            })
+            testUl.innerHTML += `
+                <li class="w-[200px] cursor-pointer group relative py-3 px-2">
+                    <p>${item.categoryName}></p>
+                    ${item.subcategory.length ?
+                    `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
+                            <li class="py-3 px-2">
+                                ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1&limit=12" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`).join('')}
+                            </li>
+                        </ul>` : ''}
+                </li>`
+            //--------------------------------------------------------
         })
-}
-showCategories()
+
+        swiperHidden.on('slideChange', swipper => {
+            if (window.innerWidth > 768) {
+                const activeElement = swipper.slides[swipper.activeIndex].id
+                if (activeElement != activeSlide) {
+                    getCategoryById(activeElement)
+                        .then(data => {
+                            productsCategory.innerHTML = ''
+                            slideShow("productsCategory", data.products)
+                        })
+                        .catch(_ => {
+                            productsCategory.innerHTML = `
+                                    <div class="w-full h-full grid place-items-center bg-white">
+                                        <span class='text-red-600 text-[24px] py-3'>Bu kateqoriyaya uyğun məhsul tapılmadı</span>
+                                    </div>`
+                        })
+                }
+                activeSlide = activeElement
+            }
+        })
+    })
+
 
 window.changeCategoryOption = (self) => {
     getCategoryById(self.value)
@@ -106,73 +102,51 @@ window.changeCategoryOption = (self) => {
 
 // ------------TEST---------------------
 getCategoryById()
-    .then(data => {
-        productsCategory.innerHTML = ''
-        slideShow("productsCategory", data.products)
-    });
+    .then(data => slideShow("productsCategory", data.products));
 //--------------------------------------
 
 
-function showDiscount() {
-    getDiscFetch()
-        .then(data => {
-            discDiv.innerHTML = ''
-            data.products.map(item => {
-                discDiv.innerHTML += `
-                    <div class="swiper-slide rounded-lg overflow-hidden h-auto">
-                        <div class="relative w-full p-[0_10px_17px]">
-                            <div>
-                            <img src="${item.img[0]}" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
-                            </div>
-                            <p class="uppercase text-[10px] font-[600] h-[30px] text-center mb-5 w-[73%] mx-auto">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</p>
-                            <div class="flex justify-center items-center mb-5">
-                                <div class="w-[38px] h-[38px] rounded-full bg-[#ffd9c0] group-hover:bg-[#ff8300] mr-2 grid place-items-center">
-                                    <span class="text-[12px] text-[#4e4e4e] group-hover:text-white font-bold">-${item.discount}%</span>
-                                </div>
-                                <div>
-                                    <p class="text-[16px] text-[#999] font-sans text-left"><del>${item.price}₼</del></p>
-                                    <p class="text-[22px] font-[700] font-sans text-left">${item.totalPrice.toFixed(2)}₼</p>
-                                </div>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>  
-                                <span class="text-[12px] font-bold">1</span>
-                                <span class="text-[11px] ml-1">Ədəd</span>
-                                <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
-                            </div>
-                            <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
-                            <i class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
-                        </div>
-                    </div>`
-            })
-        })
-}
-showDiscount()
-
-function showPopulyar() {
-    getPopulyarFetch()
-        .then(data => {
-            if (data.products == 0) {
-                getAllProductsFetch(20, 15)
-                    .then(mel => {
-                        slideShow('bestSellerDiv', mel.products)
-                    });
-            }
-        })
+getDiscFetch()
+    .then(data => slideShow('discDiv', data.products))
 
 
-}
-showPopulyar()
+getPopulyarFetch()
+    .then(data => {
+        if (data.products == 0) {
+            getAllProductsFetch(20, 15)
+                .then(mel => {
+                    slideShow('bestSellerDiv', mel.products)
+                });
+        }
+    })
+
+
 
 function slideShow(id, data) {
     const elem = document.getElementById(id)
+    elem.innerHTML = ''
     data.map(item => {
         elem.innerHTML += `
             <div class="swiper-slide rounded-lg overflow-hidden">
                 <div class="relative w-full p-[0_10px_17px]">
-                    <img src="${item.img[0]}" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
-                    <p class="uppercase text-[10px] h-[30px] font-[600] text-center mb-5 w-[73%] mx-auto">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</p>
-                    <p class="text-[22px] font-[700] font-sans text-center mb-5">${item.price}₼</p>
+                    <a href="pages/details.htm?id=${item.id}">
+                        <img src="${item.img[0]}" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                    </a>
+                    <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] font-[600] text-center mb-5 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
+                    <div class="flex justify-center items-center mb-5">
+                        ${
+                            id == 'discDiv' ? 
+                            `<div class="w-[38px] h-[38px] rounded-full bg-[#ffd9c0] group-hover:bg-[#ff8300] mr-2 grid place-items-center">
+                            <span class="text-[12px] text-[#4e4e4e] group-hover:text-white font-bold">-${item.discount}%</span>
+                            </div>` : ''
+                        }
+                        <div>
+                            ${
+                                id == 'discDiv' ? `<p class="text-[16px] text-[#999] font-sans text-left"><del>${item.price}₼</del></p>` : ''
+                            }
+                            <p class="text-[22px] font-[700] font-sans text-left">${item.totalPrice.toFixed(2)}₼</p>
+                        </div>
+                    </div>
                     <div class="flex justify-center items-center">
                         <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
                         <span class="text-[12px] font-bold">1</span>
