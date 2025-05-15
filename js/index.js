@@ -1,10 +1,9 @@
 import { getAllProductsFetch, getCategoriesFetch, getCategoryById, getDiscFetch, getPopulyarFetch } from "../services/api.js";
+import { addToBasket } from "./basket.js";
 
-const discDiv = document.getElementById("discDiv");
 const categoryDiv = document.getElementById("categoryDiv");
 const productsCategory = document.getElementById("productsCategory");
 const productsCategorySec = document.getElementById("productsCategorySec");
-const bestSellerDiv = document.getElementById("bestSellerDiv");
 const testUl = document.getElementById("testUl");
 
 const categoryProductImg = [
@@ -25,6 +24,8 @@ const categoryProductImg = [
     'https://certus.az/uploads/6052f63442399f5c0cacb5e4f06a9c913dc37422225eb.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTheS7BUesfeiyVfiPw_-7Clbjx772FIZOxKg&s'
 ];
+
+
 
 let idElement = 1;
 let activeSlide = 1;
@@ -127,35 +128,47 @@ function slideShow(id, data) {
     elem.innerHTML = ''
     data.map(item => {
         elem.innerHTML += `
-            <div class="swiper-slide rounded-lg overflow-hidden">
+            <article class="swiper-slide rounded-lg overflow-hidden">
                 <div class="relative w-full p-[0_10px_17px]">
-                    <a href="pages/details.htm?id=${item.id}">
+                    <a href="pages/details.htm?id=${item.id}" class="block">
                         <img src="${item.img[0]}" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
                     </a>
-                    <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] font-[600] text-center mb-5 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
+                    <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] block font-[600] text-center mb-5 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                     <div class="flex justify-center items-center mb-5">
-                        ${
-                            id == 'discDiv' ? 
-                            `<div class="w-[38px] h-[38px] rounded-full bg-[#ffd9c0] group-hover:bg-[#ff8300] mr-2 grid place-items-center">
+                        ${id == 'discDiv' ?
+                        `<div class="w-[38px] h-[38px] rounded-full bg-[#ffd9c0] group-hover:bg-[#ff8300] mr-2 grid place-items-center">
                             <span class="text-[12px] text-[#4e4e4e] group-hover:text-white font-bold">-${item.discount}%</span>
-                            </div>` : ''
-                        }
+                        </div>` : ''}
                         <div>
-                            ${
-                                id == 'discDiv' ? `<p class="text-[16px] text-[#999] font-sans text-left"><del>${item.price}₼</del></p>` : ''
-                            }
+                            ${id == 'discDiv' ? `<p class="text-[16px] text-[#999] font-sans text-left"><del>${item.price}₼</del></p>` : ''}
                             <p class="text-[22px] font-[700] font-sans text-left">${item.totalPrice.toFixed(2)}₼</p>
                         </div>
                     </div>
                     <div class="flex justify-center items-center">
-                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
-                        <span class="text-[12px] font-bold">1</span>
+                        <button onclick='incDec(-1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                        <span id="xana${item.id}" class="text-[12px] font-bold">1</span>
                         <span class="text-[11px] ml-1">Ədəd</span>
-                        <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                        <button onclick='incDec(1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
                     </div>
-                    <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                    <button id="btn${item.id}" onclick='sebeteAt(${JSON.stringify(item)})' class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
                     <i class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
                 </div>
-            </div>`
+            </article>`
     });
+}
+
+window.sebeteAt = (arg) => addToBasket(arg)
+
+window.incDec = (x, data) => {
+    const elm = document.getElementById(`xana${data.id}`)
+    let count = +elm.innerHTML
+    if (count + x >= 1) {
+        count += x
+        elm.innerHTML = count
+
+        const btnCount = document.getElementById(`btn${data.id}`)
+        btnCount.onclick = () => {
+            addToBasket(data, count)
+        }
+    }
 }
