@@ -1,3 +1,5 @@
+import { configObject } from "../config/config.js"
+
 async function getAllProductsFetch(limit = 20, page = 4) {
     const res = await fetch(`${configObject.base}/products?limit=${limit}&page=${page}`)
     return res.json()
@@ -38,6 +40,17 @@ async function getProductId(id) {
     return await res.json()
 }
 
+async function login(obj) {
+    const res = await fetch(`${configObject.base}/auth/login`, {
+        method: 'POST',
+        body: obj,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    return await res.json()
+}
+
 export {
     getAllProductsFetch,
     getAllProductsIdFetch,
@@ -46,5 +59,6 @@ export {
     getDiscFetch,
     getCategoryById,
     getSubCategoryId,
-    getProductId
+    getProductId,
+    login
 }

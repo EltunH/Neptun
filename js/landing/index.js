@@ -1,5 +1,7 @@
-import { getAllProductsFetch, getCategoriesFetch, getCategoryById, getDiscFetch, getPopulyarFetch } from "../services/api.js";
+import { getAllProductsFetch, getCategoriesFetch, getCategoryById, getDiscFetch, getPopulyarFetch } from "../../services/api.js";
 import { addToBasket } from "./basket.js";
+import { openFtrUl } from "./footer.js";
+import { addToWishList } from "./wishlist.js";
 
 const categoryDiv = document.getElementById("categoryDiv");
 const productsCategory = document.getElementById("productsCategory");
@@ -151,7 +153,7 @@ function slideShow(id, data) {
                         <button onclick='incDec(1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
                     </div>
                     <button id="btn${item.id}" onclick='sebeteAt(${JSON.stringify(item)})' class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] mb-5 transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
-                    <i class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute top-3 right-5"></i>
+                    <i onclick='favourite(${JSON.stringify(item)})' class="fa-regular fa-heart text-[#ff8300] cursor-pointer absolute p-1 top-3 right-5 hover:text-red-600"></i>
                 </div>
             </article>`
     });
@@ -172,3 +174,9 @@ window.incDec = (x, data) => {
         }
     }
 }
+
+window.favourite = (elm) => addToWishList(elm)
+
+
+
+window.openFtr = () => openFtrUl()

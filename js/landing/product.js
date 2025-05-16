@@ -1,14 +1,18 @@
-import { getSubCategoryId } from "../services/api.js"
+import { getSubCategoryId } from "../../services/api.js"
+import { addToBasket } from "./basket.js"
+import { openFtrUl } from "./footer.js"
+import { addToWishList } from "./wishlist.js"
 
 const sideHiddenDiv = document.getElementById('sideHiddenDiv')
 const sideLeftDiv = document.getElementById('sideLeftDiv')
 const prodContent = document.getElementById('prodContent')
 const limitSelect = document.getElementById('limitSelect')
-const catName = document.getElementById('catName')
-const subCatName = document.getElementById('subCatName')
 const pageBtn = document.getElementById('pageBtn')
+const priceInp = document.getElementById('priceInp')
 
 const data = []
+const copyData = []
+let minMax = []
 
 const params = new URLSearchParams(location.search)
 const myCatId = params.get('id')
@@ -18,7 +22,7 @@ let limit = params.get('limit') || 12
 limitSelect.value = limit
 
 let countPage = 0
-window.clickPage = (arg) => {
+function clickPage(arg) {
     productLoad()
     if (countPage !== 0) {
         params.set('page', arg)
@@ -52,12 +56,13 @@ window.btnChangePage = (arg) => {
     })
 }
 
-window.getCatProdct = (arg) => {
+function getCatProdct(arg) {
     getSubCategoryId(myCatId, limit, page)
         .then(res => {
-            data.length = 0
+            data.length = copyData.length = 0
             data.push(...res.products)
-            showCatProdct()
+            copyData.push(...res.products)
+            filtrization()
             if (arg) {
                 btnChangePage(res.totalPages)
             }
@@ -65,7 +70,7 @@ window.getCatProdct = (arg) => {
 }
 getCatProdct(true)
 
-window.showCatProdct = () => {
+function showCatProdct() {
     prodContent.innerHTML = ''
     data.forEach(item => {
         prodContent.innerHTML += `
@@ -78,13 +83,13 @@ window.showCatProdct = () => {
                 </p>
                 <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">${item.price}₼</p>
                 <div class="flex justify-center items-center">
-                    <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
-                    <span class="text-[12px] font-bold px-3">1</span>
-                    <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                    <button onclick='incDec(-1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                    <span id="xana${item.id}" class="text-[12px] font-bold px-3">1</span>
+                    <button onclick='incDec(1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
                 </div>
                 <div class="flex justify-center items-center gap-2 flex-wrap">
-                    <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
-                    <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                    <button id="btn${item.id}" onclick='sebeteAt(${JSON.stringify(item)})' class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                    <button onclick='favourite(${JSON.stringify(item)})' class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
                         <i class="fa-regular fa-heart"></i>
                     </button>
                     <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
@@ -95,7 +100,39 @@ window.showCatProdct = () => {
     })
 }
 
-window.productLoad = () => {
+window.sebeteAt = (arg) => addToBasket(arg)
+
+window.incDec = (x, data) => {
+    const elm = document.getElementById(`xana${data.id}`)
+    let count = +elm.innerHTML
+    if (count + x >= 1) {
+        count += x
+        elm.innerHTML = count
+
+        const btnCount = document.getElementById(`btn${data.id}`)
+        btnCount.onclick = () => {
+            addToBasket(data, count)
+        }
+    }
+}
+
+window.favourite = (elm) => addToWishList(elm)
+
+window.filtrization = () => {
+    let sortArr = copyData.sort((a, b) => a.price - b.price)
+
+    minMax[0] = priceInp.min = sortArr[0].price
+    minMax[1] = priceInp.max = sortArr.at(-1).price
+    document.getElementById('minSp').innerHTML = minMax[0] + ' ₼'
+    document.getElementById('maxSp').innerHTML = minMax[1] + ' ₼'
+    document.getElementById('minSp').innerHTML = priceInp.value + ' ₼'
+
+    data.length = 0
+    data.push(...sortArr.filter(item => item.price >= +priceInp.value))
+    showCatProdct()
+}
+
+function productLoad() {
     prodContent.innerHTML = ''
     Array(+limit).fill('').map(_ => {
         prodContent.innerHTML += `
@@ -136,3 +173,5 @@ window.prodSideFiltr = (div, i) => {
     filtrDiv.classList.toggle('hidden')
     filtrIcon.classList.toggle('rotate-[180deg]')
 }
+
+window.openFtr = () => openFtrUl()

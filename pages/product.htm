@@ -108,10 +108,11 @@
                         </div>
                         <div id="productSideQiymDiv" class="p-[5px_10px_15px]">
                             <div class="font-normal flex items-center justify-between py-1">
-                                <span>0 ₼</span>
-                                <span>21 ₼</span>
+                                <span id="minSp">99 ₼</span>
+                                <span id="currSp">99 ₼</span>
+                                <span id="maxSp">99 ₼</span>
                             </div>
-                            <input type="range" min="0" max="22" value="0" class="w-full" />
+                            <input id="priceInp" onchange="filtrization()" step="0.01" type="range" min="0" max="22" value="0" class="w-full" />
                         </div>
                         <hr />
                         <div class="p-5">
@@ -358,7 +359,7 @@
                 </ul>
             </div>
             <div class="md:hidden">
-                <span id="changeSp" onclick="openFtrUl()"
+                <span id="changeSp" onclick="openFtr()"
                     class="inline-block text-white text-[13px] border-b border-dotted border-b-[white] cursor-pointer">Daha
                     çox</span>
             </div>
@@ -381,10 +382,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-    <script src="../js/footer.js"></script>
-    <script src="../config/config.js"></script>
     <script src="../js/pagination.js"></script>
-    <script type="module" src="../js/product.js"></script>
+    <script type="module" src="../js/landing/product.js"></script>
 </body>
 
 </html>

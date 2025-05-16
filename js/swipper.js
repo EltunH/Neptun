@@ -103,7 +103,7 @@ let swiperDiscount = new Swiper(".swipperDiscount", {
       spaceBetween: 10,
     },
     1200: {
-      slidesPerView: 5,
+      slidesPerView: 6,
       spaceBetween: 10,
     },
   },
@@ -130,7 +130,7 @@ let swipperBestSeller = new Swiper(".swipperBestSeller", {
       spaceBetween: 10,
     },
     1200: {
-      slidesPerView: 5,
+      slidesPerView: 6,
       spaceBetween: 10,
     },
   },

@@ -1,5 +1,5 @@
 const BASE_URL = 'https://neptunbk.vercel.app';
 
-const configObject = {
+export const configObject = {
     base: BASE_URL,
 }

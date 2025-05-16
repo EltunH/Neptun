@@ -1,11 +1,13 @@
-import { getProductId } from "../services/api.js";
+import { getProductId } from "../../services/api.js";
+import { addToBasket } from "./basket.js";
+import { openFtrUl } from "./footer.js";
+import { addToWishList } from "./wishlist.js";
 
 const smallMenu = document.getElementById('smallMenu')
 const detailsContent = document.getElementById('detailsContent')
 
 const paramDetail = new URLSearchParams(location.search)
 const detailId = paramDetail.get('id')
-// const detailPage = paramDetail.get('page')
 
 getProductId(detailId)
     .then(data => showDetails(data))
@@ -50,13 +52,13 @@ function showDetails(data) {
             </div>
             <p class="mt-[22px] mb-[15px] text-[#ff8230] text-[31px] font-bold">${data.price}₼</p>
             <div class="">
-                <button class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
-                <span class="text-[12px] font-bold px-3">1</span>
-                <button class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
+                <button onclick='incDec(-1, ${JSON.stringify(data)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
+                <span id="xana${data.id}" class="text-[12px] font-bold px-3">1</span>
+                <button onclick='incDec(1, ${JSON.stringify(data)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">+</button>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-                <button class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
-                <button class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
+                <button id="btn${data.id}" onclick='sebeteAt(${JSON.stringify(data)})' class="bg-[#ff8300] rounded-full px-5 text-[15px] text-white h-[30px] transition duration-300 hover:bg-[#de7200]">Səbətə at</button>
+                <button onclick='favourite(${JSON.stringify(data)})' class="w-[32px] h-[32px] text-[#ff8300] rounded-full hover:bg-[#de7200] hover:text-white transition-all duration-300">
                     <i class="fa-regular fa-heart"></i>
                 </button>
                 <button class="w-[32px] h-[32px] text-[#ff8300] rounded-[6px] hover:bg-[#de7200] hover:text-white transition-all duration-300">
@@ -65,6 +67,24 @@ function showDetails(data) {
             </div>
         </div>`;
 }
+
+window.sebeteAt = (arg) => addToBasket(arg)
+
+window.incDec = (x, data) => {
+    const elm = document.getElementById(`xana${data.id}`)
+    let count = +elm.innerHTML
+    if (count + x >= 1) {
+        count += x
+        elm.innerHTML = count
+
+        const btnCount = document.getElementById(`btn${data.id}`)
+        btnCount.onclick = () => {
+            addToBasket(data, count)
+        }
+    }
+}
+
+window.favourite = (elm) => addToWishList(elm)
 
 function detailsLoader() {
     detailsContent.innerHTML = `
@@ -113,3 +133,4 @@ function detailsLoader() {
 }
 detailsLoader()
 
+window.openFtr = () => openFtrUl()
