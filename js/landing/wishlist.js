@@ -1,8 +1,11 @@
+import { addToBasket } from "./basket.js";
 import { openFtrUl } from "./footer.js"
 
 const content = document.getElementById('content');
 
 const wishArr = JSON.parse(localStorage.getItem('wishList')) || []
+
+let newsTimer
 
 function addToWishList(elm) {
     let yoxla = wishArr.find(item => item.id == elm.id)
@@ -11,8 +14,26 @@ function addToWishList(elm) {
         wishArr.push(elm)
         localStorage.setItem('wishList', JSON.stringify(wishArr))
     }
-    showFavourite()
+
+    news.innerHTML = `
+        <div class="w-[250px] rounded-[15px] bg-white text-[#333] p-[10px] my-2 min-h-[40px]" style="box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .08), 0 1px 5px 0 rgba(0, 0, 0, .2);">
+                <div class="flex justify-between items-center mb-[10px]">
+                    <p class="text-[11px] font-bold">Məhsul arzu siyahısına əlavə olundu</p>
+                    <i onclick="closenews()" class="fa-solid fa-circle-xmark text-[20px] text-[#ff8230] cursor-pointer"></i>
+                </div>
+                <div class="text-[12px] flex items-center">
+                    <img src="${elm.img[0]}" class="object-cover w-[50px] h-[50px] mr-[15px]" alt="photo" />
+                    <p><span>${elm.name}</span> arzu siyahısına əlavə edildi</p>
+                </div>
+            </div>`;
+
+    if (newsTimer) clearTimeout(newsTimer);
+
+    news.style.right = '10px'
+    newsTimer = setTimeout(() => { news.style.right = '-100%' }, 4000)
 }
+
+window.closenews = () => news.style.right = '-150%'
 
 function showFavourite() {
     content.innerHTML = ''
@@ -36,7 +57,7 @@ function showFavourite() {
                     <div class="py-2 px-4 hidden sm:table-cell text-orange-500 font-semibold text-nowrap">${item.price} ₼</div>
                     <div class="py-2 px-4">
                         <div class="flex gap-2">
-                            <button
+                            <button onclick='fromToBasket(${JSON.stringify(item,)})'
                                 class="bg-orange-400 hover:bg-orange-500 text-white px-3 py-1 rounded-full">🛒</button>
                             <button onclick="delFavouriteProd(${item.id})"
                                 class="bg-white hover:bg-red-500 px-3 py-1 rounded-full transition">❌</button>
@@ -46,7 +67,11 @@ function showFavourite() {
             </div>`;
     });
 }
-// showFavourite()
+if(content) showFavourite() 
+
+window.fromToBasket = (elm) => {
+    addToBasket(elm)
+}
 
 window.delAllFavourites = () => {
     wishArr.length = 0
