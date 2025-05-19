@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css" />
+    <link rel="stylesheet" href="../src/input.css" />
+</head>
+
+<body>
+    <main>
+        <div class="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+            <div class="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5">
+                <div class="flex flex-shrink-0 items-center px-4">
+                    <a href="/"><img class="h-14 w-auto mb-3" src="/img/favicon.png" alt="logo"></a>
+                </div>
+                <div class="mt-5 flex flex-grow flex-col">
+                    <nav class="flex-1 space-y-1 px-2 pb-4"><a
+                            class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
+                            href="/admin"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
+                                class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25">
+                                </path>
+                            </svg>Ana səhifə</a><a
+                            class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
+                            href="/admin/products"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                data-slot="icon" class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z">
+                                </path>
+                            </svg>Məhsullar</a><a
+                            class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
+                            href="/admin/categories"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                data-slot="icon" class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z">
+                                </path>
+                            </svg>Kateqoriyalar</a><a
+                            class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
+                            href="/admin/subcategory"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                data-slot="icon" class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5">
+                                </path>
+                            </svg>Subkataqoriya</a><a
+                            class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
+                            href="/admin/slider"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
+                                class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776">
+                                </path>
+                            </svg>Slider</a>
+                    </nav>
+                    <button onclick="cixisEt()"
+                        class="flex items-center font-semibold gap-2 hover:text-[#43766C] hover:bg-gray-100 px-4 py-2 text-md text-gray-700">
+                        Çıxış edin
+                    </button>
+                    <a class="flex items-center font-semibold gap-2 hover:text-[#43766C] hover:bg-gray-100 px-4 py-2 text-md text-gray-700"
+                        href="/register"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                            viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-228-32c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H118.4C106 384 96 375.4 96 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2z">
+                            </path>
+                        </svg>Admin əlavə et</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-1 flex-col md:pl-64">
+            <div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow"><button type="button"
+                    class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"><span
+                        class="sr-only">Open sidebar</span><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
+                        class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"></path>
+                    </svg></button>
+                <div class="flex flex-1 justify-between px-4">
+                    <div class="flex flex-1">
+                        <form class="flex w-full md:ml-0" action="#" method="GET"><label for="search-field"
+                                class="sr-only">Search</label>
+                            <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                        <path fill-rule="evenodd"
+                                            d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></div><input id="search-field"
+                                    class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
+                                    placeholder="Search" type="search" name="search">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="ml-4 flex items-center md:ml-6"><button type="button"
+                            class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><span
+                                class="sr-only">View notifications</span><svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                aria-hidden="true" data-slot="icon" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0">
+                                </path>
+                            </svg></button>
+                        <div class="relative ml-3" data-headlessui-state="">
+                            <div><button
+                                    class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    id="headlessui-menu-button-:r2:" type="button" aria-haspopup="menu"
+                                    aria-expanded="false" data-headlessui-state=""><span class="sr-only">Open user
+                                        menu</span><img class="h-8 w-8 rounded-full"
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksZ8pPDgsZruGb8cQguP3T6aWoZGNxbao2A&amp;s"
+                                        alt=""><span class="font-semibold mx-2.5 capitalize" id="userName"></span><svg
+                                        stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                                        class="text-gray-400 mt-1" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="48" d="m112 184 144 144 144-144"></path>
+                                    </svg></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <main class="flex-1">
+                <section>
+                    <div class="container mx-auto flex flex-col items-center py-10 text-center md:py-20 xl:max-w-3xl">
+                        <h1 class="text-4xl font-bold leading-none sm:text-5xl">Salammm!!!</h1>
+                        <p class="my-6 text-xl">Bura Admin hissəsidir. Burada ağıllı olmaq və bəzi şeyləri qurcalamamaq lazımdır!</p>
+                        <div class="flex flex-wrap justify-center">
+                            <a class="px-8 py-3 m-2 text-md font-semibold rounded text-white bg-[#ff8300]" href="#">Məhsul əlavə et</a>
+                            <a class="px-6 py-3 m-2 text-md bg-slate-800 text-white rounded" href="#">Kataqoriya əlavə et</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </main>
+
+    <script type="module" src="../js/auth/verify.js"></script>
+    <script type="module" src="../js/auth/login.js"></script>
+
+
+</body>
+
+</html>

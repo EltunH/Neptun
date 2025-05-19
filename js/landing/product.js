@@ -125,7 +125,7 @@ window.filtrization = () => {
     minMax[1] = priceInp.max = sortArr.at(-1).price
     document.getElementById('minSp').innerHTML = minMax[0] + ' ₼'
     document.getElementById('maxSp').innerHTML = minMax[1] + ' ₼'
-    document.getElementById('minSp').innerHTML = priceInp.value + ' ₼'
+    document.getElementById('currSp').innerHTML = priceInp.value + ' ₼'
 
     data.length = 0
     data.push(...sortArr.filter(item => item.price >= +priceInp.value))

@@ -6,7 +6,6 @@ import { addToWishList } from "./wishlist.js";
 const categoryDiv = document.getElementById("categoryDiv");
 const productsCategory = document.getElementById("productsCategory");
 const productsCategorySec = document.getElementById("productsCategorySec");
-const testUl = document.getElementById("testUl");
 
 const categoryProductImg = [
     'https://cdn.myikas.com/images/11ee5840-85b0-4d70-9b56-6b324f30871e/272de7d2-93fb-419e-8d07-8cbfea9b7d58/image_1080.jpg',
@@ -26,8 +25,6 @@ const categoryProductImg = [
     'https://certus.az/uploads/6052f63442399f5c0cacb5e4f06a9c913dc37422225eb.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTheS7BUesfeiyVfiPw_-7Clbjx772FIZOxKg&s'
 ];
-
-
 
 let idElement = 1;
 let activeSlide = 1;
@@ -50,20 +47,6 @@ getCategoriesFetch()
                 <option value="${idElement - 1}" class="p-[5px]">
                     ${item.categoryName}
                 </option>`;
-
-            // test---------------------------------------------------------
-
-            testUl.innerHTML += `
-                <li class="w-[200px] cursor-pointer group relative py-3 px-2">
-                    <p>${item.categoryName}></p>
-                    ${item.subcategory.length ?
-                    `<ul class="absolute left-[100%] top-0 bg-orange-300 group-hover:max-h-[500px] max-h-0 overflow-hidden transition-all duration-300">
-                            <li class="py-3 px-2">
-                                ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1&limit=12" class="py-3 block px-2 cursor-pointer">${sub.categoryName}<a/>`).join('')}
-                            </li>
-                        </ul>` : ''}
-                </li>`
-            //--------------------------------------------------------
         })
 
         swiperHidden.on('slideChange', swipper => {
@@ -102,16 +85,11 @@ window.changeCategoryOption = (self) => {
         })
 }
 
-
-// ------------TEST---------------------
 getCategoryById()
     .then(data => slideShow("productsCategory", data.products));
-//--------------------------------------
-
 
 getDiscFetch()
     .then(data => slideShow('discDiv', data.products))
-
 
 getPopulyarFetch()
     .then(data => {

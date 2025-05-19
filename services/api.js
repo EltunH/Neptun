@@ -1,4 +1,5 @@
 import { configObject } from "../config/config.js"
+const token = localStorage.getItem('token');
 
 async function getAllProductsFetch(limit = 20, page = 4) {
     const res = await fetch(`${configObject.base}/products?limit=${limit}&page=${page}`)
@@ -51,6 +52,15 @@ async function login(obj) {
     return await res.json()
 }
 
+async function verifyToken() {
+    const res = await fetch(`${configObject.base}/auth/verify-token`, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    return await res.json()
+}
+
 export {
     getAllProductsFetch,
     getAllProductsIdFetch,
@@ -60,5 +70,6 @@ export {
     getCategoryById,
     getSubCategoryId,
     getProductId,
-    login
+    login,
+    verifyToken
 }
