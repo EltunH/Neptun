@@ -5,6 +5,7 @@ const passwordInp = document.getElementById('passwordInp')
 const btnLog = document.getElementById('btnLog')
 
 window.girisEt = () => {
+    if(validation()) return
     btnLog.disabled = true
     const obj = JSON.stringify({
         login: emailInp.value,
@@ -12,7 +13,7 @@ window.girisEt = () => {
     })
     login(obj)
         .then(res => {
-            if (res.error) {
+            if (res.errors) {
                 emailInp.value = ''
                 passwordInp.value = ''
                 return alert('Mail və ya şifrə yanlışdır!')
@@ -31,4 +32,21 @@ window.cixisEt = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('status')
     localStorage.removeItem('username')
-} 
+}
+
+function validation() {
+    emailInp.style.border = '1px solid #ccc'
+    passwordInp.style.border = '1px solid #ccc'
+    if (emailInp.value.trim() == '') {
+        emailInp.style.border = '1px solid red'
+        emailInp.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (passwordInp.value.trim() == '') {
+        passwordInp.style.border = '1px solid red'
+        passwordInp.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+}
