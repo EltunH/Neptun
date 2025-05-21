@@ -62,7 +62,9 @@ function getCatProdct(arg) {
             data.length = copyData.length = 0
             data.push(...res.products)
             copyData.push(...res.products)
+
             filtrization()
+            showCatProdct()
             if (arg) {
                 btnChangePage(res.totalPages)
             }
@@ -118,20 +120,6 @@ window.incDec = (x, data) => {
 
 window.favourite = (elm) => addToWishList(elm)
 
-window.filtrization = () => {
-    let sortArr = copyData.sort((a, b) => a.price - b.price)
-
-    minMax[0] = priceInp.min = sortArr[0].price
-    minMax[1] = priceInp.max = sortArr.at(-1).price
-    document.getElementById('minSp').innerHTML = minMax[0] + ' ₼'
-    document.getElementById('maxSp').innerHTML = minMax[1] + ' ₼'
-    document.getElementById('currSp').innerHTML = priceInp.value + ' ₼'
-
-    data.length = 0
-    data.push(...sortArr.filter(item => item.price >= +priceInp.value))
-    showCatProdct()
-}
-
 function productLoad() {
     prodContent.innerHTML = ''
     Array(+limit).fill('').map(_ => {
@@ -175,3 +163,32 @@ window.prodSideFiltr = (div, i) => {
 }
 
 window.openFtr = () => openFtrUl()
+
+window.filtrization = () => {
+
+
+    let sortArr = copyData.sort((a, b) => a.price - b.price)
+    minMax[0] = sortArr[0].price
+    minMax[1] = sortArr.at(-1).price
+    $(() => {
+        $("#slider-range").slider({
+            range: true,
+            step: 0.01,
+            min: minMax[0],
+            max: minMax[1],
+            values: minMax,
+            slide: function (event, ui) {
+                data.length = 0
+                data.push(...sortArr.filter(item => item.price >= ui.values[0] && item.price <= ui.values[1]))
+
+                $('#minSp').html(`${ui.values[0]} ₼`)
+                $('#maxSp').html(`${ui.values[1]} ₼`)
+                showCatProdct()
+            }
+        });
+        $('#minSp').html(`${minMax[0]} ₼`)
+        $('#maxSp').html(`${minMax[1]} ₼`)
+    });
+}
+
+

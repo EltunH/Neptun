@@ -19,7 +19,7 @@ function showDetails(data) {
         <span>></span>
         <a href="#" class="cursor-pointer">${data.category.categoryName}</a>
         <span>></span>
-        <a href="/pages/product.htm?id=${data.subcategory.id}&page=1&limit=12" class="cursor-pointer">${data.subcategory.categoryName.charAt(0).toUpperCase() + data.subcategory.categoryName.slice(1)}</a>
+        <a href="/pages/category.htm?id=${data.subcategory.id}&page=1&limit=12" class="cursor-pointer">${data.subcategory.categoryName.charAt(0).toUpperCase() + data.subcategory.categoryName.slice(1)}</a>
         <span>></span>
         <span href="#">${data.name}</span>`
 

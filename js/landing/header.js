@@ -2,6 +2,7 @@ import { getCategoriesFetch } from "../../services/api.js"
 
 const openCloseTop = document.getElementById('openCloseTop')
 const openCloseBottom = document.getElementById('openCloseBottom')
+const openCloseBottomDiv = document.getElementById('openCloseBottomDiv')
 
 const cache = JSON.parse(localStorage.getItem("categoryArr"))
 const categoryArr = cache || []
@@ -49,6 +50,7 @@ if (!cache) {
 
 function handleCategory() {
     menu.innerHTML = ''
+    openCloseBottomDiv.innerHTML = ''
 
     if (categoryArr.length == 0) {
         Array(15).fill("").forEach(item => {
@@ -73,10 +75,19 @@ function handleCategory() {
                         </div>
                         
                         ${item.subcategory.length > 0 ?
-                    `<div class="absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-0 h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
-                            ${item.subcategory.map(sub => `<a href="pages/product.htm?id=${sub.id}&page=1&limit=12" class="block px-2 py-1 text-[14px] hover:text-[#ff8230] capitalize hover:underline">${sub.categoryName}</a>`).join("")}
+                        `<div class="absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-0 h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                            ${item.subcategory.map(sub => `<a href="/pages/category.htm?id=${sub.id}&page=1&limit=12" class="block px-2 py-1 text-[14px] hover:text-[#ff8230] capitalize hover:underline">${sub.categoryName}</a>`).join("")}
                         </div>`: ''}
                 </li>`;
+            openCloseBottomDiv.innerHTML += `
+                <div class="group relative cursor-pointer px-[13px] hover:bg-orange-200 transition-all">
+                        <div class="border-b flex py-[9px] items-center justify-start">
+                            <img class="max-w-full w-[21px]" src="${icons[i]}" alt="icons" />
+                            <div class="flex items-center justify-between gap-2 px-4 w-full">
+                                <span class="text-[13px] cursor-pointer">${item.categoryName}</span>
+                            </div>
+                        </div>
+                </div>`;
         })
     }
 }

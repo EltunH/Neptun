@@ -8,53 +8,265 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../src/style.css" />
     <link rel="stylesheet" href="../src/output.css" />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="font-noto">
-    <header class="p-4 bg-gray-400 text-gray-800">
-        <div class="container flex justify-between h-16 mx-auto">
-            <a rel="noopener noreferrer" href="/index.htm" aria-label="Back to homepage" class="flex items-center p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32"
-                    class="w-8 h-8 dark:text-red-600">
-                    <path
-                        d="M27.912 7.289l-10.324-5.961c-0.455-0.268-1.002-0.425-1.588-0.425s-1.133 0.158-1.604 0.433l0.015-0.008-10.324 5.961c-0.955 0.561-1.586 1.582-1.588 2.75v11.922c0.002 1.168 0.635 2.189 1.574 2.742l0.016 0.008 10.322 5.961c0.455 0.267 1.004 0.425 1.59 0.425 0.584 0 1.131-0.158 1.602-0.433l-0.014 0.008 10.322-5.961c0.955-0.561 1.586-1.582 1.588-2.75v-11.922c-0.002-1.168-0.633-2.189-1.573-2.742zM27.383 21.961c0 0.389-0.211 0.73-0.526 0.914l-0.004 0.002-10.324 5.961c-0.152 0.088-0.334 0.142-0.53 0.142s-0.377-0.053-0.535-0.145l0.005 0.002-10.324-5.961c-0.319-0.186-0.529-0.527-0.529-0.916v-11.922c0-0.389 0.211-0.73 0.526-0.914l0.004-0.002 10.324-5.961c0.152-0.090 0.334-0.143 0.53-0.143s0.377 0.053 0.535 0.144l-0.006-0.002 10.324 5.961c0.319 0.185 0.529 0.527 0.529 0.916z">
-                    </path>
-                    <path
-                        d="M22.094 19.451h-0.758c-0.188 0-0.363 0.049-0.515 0.135l0.006-0.004-4.574 2.512-5.282-3.049v-6.082l5.282-3.051 4.576 2.504c0.146 0.082 0.323 0.131 0.508 0.131h0.758c0.293 0 0.529-0.239 0.529-0.531v-0.716c0-0.2-0.11-0.373-0.271-0.463l-0.004-0.002-5.078-2.777c-0.293-0.164-0.645-0.26-1.015-0.26-0.39 0-0.756 0.106-1.070 0.289l0.010-0.006-5.281 3.049c-0.636 0.375-1.056 1.055-1.059 1.834v6.082c0 0.779 0.422 1.461 1.049 1.828l0.009 0.006 5.281 3.049c0.305 0.178 0.67 0.284 1.061 0.284 0.373 0 0.723-0.098 1.027-0.265l-0.012 0.006 5.080-2.787c0.166-0.091 0.276-0.265 0.276-0.465v-0.716c0-0.293-0.238-0.529-0.529-0.529z">
-                    </path>
-                </svg>
-            </a>
-            <ul class="items-stretch hidden space-x-3 lg:flex">
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="#"
-                        class="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-red-600 dark:border-red-600">Link</a>
-                </li>
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="#"
-                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
-                </li>
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="#"
-                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
-                </li>
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="#"
-                        class="flex items-center px-4 -mb-1 border-b-2 dark:border-">Link</a>
-                </li>
-            </ul>
-            <div class="items-center flex-shrink-0 hidden lg:flex">
-                <button class="self-center px-8 py-3 rounded">Sign in</button>
-                <button class="self-center px-8 py-3 font-semibold rounded dark:bg-red-600 dark:text-gray-50">Sign
-                    up</button>
+    <header class="bg-white">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="px-[15px] py-[25px] text-gray-800 container mx-auto">
+                <div class="flex justify-between h-16">
+                    <div class="flex gap-10 max-xms:gap-5 max-xs:gap-[5px] max-xxs:gap-0">
+                        <a rel="noopener noreferrer" href="/index.htm" aria-label="Back to homepage"
+                            class="flex items-center p-2">
+                            <img class="max-w-full w-[270px] max-sm:max-w-[147px] max-xxs:max-w-[100px] max-xms:max-w-[122px] max-sm:min-h-[40px] min-h-[58px]"
+                                src="/img/logo.svg" alt="neptun-logo" />
+                        </a>
+                        <div class="flex items-center justify-start relative">
+                            <input type="text" placeholder="Məhsulu axtarın"
+                                class="py-[10px] text-[13px] max-xxs:text-[10px] max-sm:w-[280px] max-xxs:w-[150px] max-xs:w-[244px] max-xms:py-[5px] max-xxs:px-7 outline-none px-10 border border-[#ff8230] rounded-[20px] max-w-full w-[380px]" />
+                            <i
+                                class="absolute top-30 mr-3 ml-1 text-[16px] max-xxs:text-[13px] left-[10px] text-[#ff8230] fa-solid fa-magnifying-glass"></i>
+                            <div>
+                                <button
+                                    class="absolute h-[31px] xms:top-[12px] xms:h-[40px] max-xxs:text-[10px] max-xms:top-[17px] right-0 max-xxs:py-[6px] max-xxs:top-[18px] bg-[#ff8230] text-white max-xms:py-[5px] py-[11px] max-xms:px-[10px] px-4 rounded-[20px] text-[14px]">
+                                    Axtar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items-center flex justify-center ml-5 gap-5 max-slm:hidden">
+                        <div>
+                            <a class="flex items-center justify-center" href="#">
+                                <img class="max-w-[20px] min-h-[15px]" src="/img/flags.png" alt="flags" />
+                                <span class="text-[11px] font-[600] px-1">AZE</span>
+                            </a>
+                        </div>
+                        <div>
+                            <img class="max-w-[97px] min-h-[43px]" src="/img/download.png" alt="/img" />
+                        </div>
+                    </div>
+                    <button onclick="openSidebarTop()" class="p-4 slm:hidden max-md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-[43px] h-[37px] p-1 bg-[#ff8230] rounded-lg shadow-xl text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <button class="p-4 lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6 dark:text-gray-800">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
+        </div>
+        <div class="bg-[#ff8230]">
+
+            <div class="max-w-[1200px] mx-auto">
+                <div class="pl-[15px] pr-[25px] flex relative z-50 justify-between h-12 container mx-auto">
+                    <div
+                        class="bg-white max-w-full max-slm:hidden min-w-[195px] mlg:min-w-[240px] min-h-[57px] overflow-hidden hover:overflow-visible hover:min-h-[675px] hover:mlg:min-h-[757px] mt-[-4px] rounded-[4px] border-t-[5px] border-b-[5px] border-[#ff8230]">
+                        <div class="py-[15px] px-[7px] text-[15px] font-[600] text-[#ff8230]">
+                            <a href="">
+                                <i class="fa-solid text-[20px] px-2 fa-bars"></i>
+                            </a>
+                            <span>Kateqoriyalar</span>
+                        </div>
+                        <ul id="menu"></ul>
+                        <div class="py-[10px] px-[15px] bg-[#ff8230] rounded-b-[7px] flex items-center justify-start">
+                            <a href="">
+                                <img class="max-w-full w-[16px]" src="/img/Aksiyalar.svg" alt="Aksiyalar" />
+                            </a>
+                            <span class="text-[12px] text-white px-5 cursor-pointer">Kampaniyalar</span>
+                        </div>
+                    </div>
+
+                    <div id="openCloseBottom"
+                        class="h-screen p-4 overflow-y-scroll fixed z-50 top-[162px] left-[-100%] border max-w-[80%] bg-white transition-all duration-700 ease-in-out">
+                        <div class=" flex items-center justify-end">
+                            <i onclick="openSidebarBottom()"
+                                class="text-[13px] p-1 fa-solid fa-xmark cursor-pointer"></i>
+                        </div>
+                        <div id="openCloseBottomDiv"></div>
+                    </div>
+
+                    <button onclick="openSidebarBottom()" class="p-2 hidden max-slm:block">
+                        <i class="text-[20px] max-xs:text-[17px] text-white fa-solid fa-bars-staggered"></i>
+                    </button>
+
+                    <ul class="items-stretch flex text-white max-hd:hidden space-x-3">
+                        <li class="flex">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center px-2 font-bold text-[12px] -mb-1">Ana səhifə</a>
+                        </li>
+                        <li class="group flex relative items-center justify-center">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center font-bold px-2 text-[12px] -mb-1 z-10">Haqqımızda
+                                <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
+                            </a>
+
+                            <div
+                                class="absolute top-full w-[160px] h-0 overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-auto group-hover:max-h-[500px] group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                                <p class="px-2 py-1 cursor-pointer">Siyasətimiz</p>
+                                <p class="px-2 py-1 cursor-pointer">Yeniliklər</p>
+                            </div>
+                        </li>
+
+                        <li class="group flex relative items-center justify-center">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center font-bold px-2 text-[12px] -mb-1 z-10">Aksiyalar
+                                <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
+                            </a>
+
+                            <div
+                                class="absolute top-full w-[160px] h-0 overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[90px] group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                                <p class="px-2 py-1 cursor-pointer">Kampaniyalar</p>
+                                <p class="px-2 py-1 cursor-pointer">Neptun bonus kart</p>
+                                <p class="px-2 py-1 cursor-pointer">Elektron kataloq</p>
+                            </div>
+                        </li>
+
+                        <li class="group flex relative items-center justify-center">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center px-2 font-bold text-[12px] -mb-1 z-10">Supermarketlər
+                                <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
+                            </a>
+
+                            <div
+                                class="absolute top-full w-[160px] h-0 overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[170px] group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                                <p class="px-2 py-1 cursor-pointer">Mağazalarımız</p>
+                                <p class="px-2 py-1 cursor-pointer">İrad və təkliflər</p>
+                                <p class="px-2 py-1 cursor-pointer">Alıcıların Nəzərinə</p>
+                                <p class="px-2 py-1 cursor-pointer">Partnyorluq</p>
+                                <p class="px-2 py-1 cursor-pointer">Tərəfdaşlar</p>
+                                <p class="px-2 py-1 cursor-pointer">Supermarketdə Reklam</p>
+                            </div>
+                        </li>
+
+                        <li class="group flex relative items-center justify-center">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center px-2 text-[12px] font-bold -mb-1 z-10">Karyera
+                                <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
+                            </a>
+
+                            <div
+                                class="absolute top-full w-[160px] h-0 overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[100px] group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                                <p class="px-2 py-1 cursor-pointer">İşə Qəbul Proseduru</p>
+                                <p class="px-2 py-1 cursor-pointer">Vakansiyalar</p>
+                                <p class="px-2 py-1 cursor-pointer">CV Yerləşdirin</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center px-2 text-[12px] font-bold -mb-1">Əlaqə</a>
+                        </li>
+                    </ul>
+
+                    <div id="openCloseTop"
+                        class="h-screen max-w-full p-4 fixed z-50 top-0 left-[-100%] border w-[70%] bg-white transition-all duration-700 ease-in-out">
+                        <div class="px-4 py-4 flex items-center justify-end">
+                            <i onclick="openSidebarTop()" class="text-[15px] fa-solid fa-xmark cursor-pointer"></i>
+                        </div>
+                        <div class="pt-[40px] lg:hidden">
+                            <div rel="noopener noreferrer" href="#"
+                                class="cursor-pointer font-[400] hover:text-[#ff8230] text-[13px] mb-2 py-2">
+                                Ana səhifə
+                                <hr />
+                            </div>
+
+                            <div rel="noopener noreferrer" href="#"
+                                class="cursor-pointer font-[400] hover:text-[#ff8230] text-[13px] mb-2 py-2">
+                                Haqqımızda
+                                <hr />
+                            </div>
+
+                            <div class="font-[400] hover:text-[#ff8230] cursor-pointer text-[13px] mb-2 py-2">
+                                Aksiyalar
+                                <hr />
+                            </div>
+
+                            <div rel="noopener noreferrer" href="#"
+                                class="font-[400] cursor-pointer hover:text-[#ff8230] text-[13px] mb-2 py-2">
+                                Supermarketlər
+                                <hr />
+                            </div>
+
+                            <div rel="noopener noreferrer" href="#"
+                                class="font-[400] cursor-pointer hover:text-[#ff8230] text-[13px] mb-2 py-2">
+                                Karyera
+                                <hr />
+                            </div>
+
+                            <div rel="noopener noreferrer" href="#"
+                                class="font-[400] cursor-pointer hover:text-[#ff8230] text-[13px] mb-2 py-2">
+                                Əlaqə
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center text-white">
+                        <div class="group flex relative items-center justify-center">
+                            <i class="fa-solid text-[10px] fa-lock"></i>
+                            <a rel="noopener noreferrer" href="#"
+                                class="flex items-center px-2 text-[12px] -mb-1 z-10">Giriş
+                            </a>
+                        </div>
+
+                        <span class="px-2 max-xs:px-[5px]">|</span>
+
+                        <div class="text-[11px]">
+                            <div class="group flex relative items-center justify-center">
+                                <a rel="noopener noreferrer" href="#"
+                                    class="flex items-center text-[12px] max-md:hidden h-[48px] -mb-1 z-10">Hesabım
+                                </a>
+                                <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
+
+                                <div
+                                    class="absolute top-[47px] z-10 max-h-0 w-[160px] overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-y-[30px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-auto group-hover:max-h-[300px] group-hover:p-2 group-hover:translate-y-0">
+                                    <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
+                                        Hesabım
+                                    </p>
+                                    <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
+                                        Sifaris tarixçəsi
+                                    </p>
+                                    <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
+                                        Əməliyyatlar
+                                    </p>
+                                    <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
+                                        Yükləmələr
+                                    </p>
+                                    <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
+                                        Sifarişi rəsmiləşdir
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-[12px] ml-4 items-center h-full justify-center gap-3 flex pr-[2px]">
+                            <a href="/pages/wishlist.htm" class="p-1">
+                                <i class="fa-regular fa-heart text-[18px]"></i>
+                            </a>
+                            <img src="/img/reverse.svg" class="w-[18px] h-[18px] brightness-0 invert hover:rotate-180 transition-all duration-300 cursor-pointer" alt="reverse">
+                            <div class="inline-block relative cursor-pointer">
+                                <a href="/pages/basket.htm">
+                                    <img src="/img/shopping.svg" class="w-[18px] h-[18px] brightness-0 invert"
+                                        alt="baskett" />
+                                    <span
+                                        class="bg-[#0F0] absolute top-[-50%] left-[100%] text-black w-[17px] h-[17px] grid place-items-center rounded-full text-[12px]">0</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openSidebarTop()" class="md:hidden ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-[37px] h-[37px] max-small:w-[30px] max-small:h-[30px] p-1 bg-white rounded-lg shadow-xl text-[#ff8230]">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </header>
 
@@ -316,6 +528,7 @@
 
     </footer>
 
+    <script type="module" src="../js/landing/header.js"></script>
     <script type="module" src="../js/landing/wishlist.js"></script>
 </body>
 

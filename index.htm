@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Neptun Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="src/style.css" />
     <link rel="stylesheet" href="src/output.css" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="font-noto">
@@ -60,7 +61,7 @@
         <div class="bg-[#ff8230]">
             
                 <div class="max-w-[1200px] mx-auto">
-                    <div class="pl-[15px] pr-[25px] flex relative z-50 justify-between h-12 mx-auto">
+                    <div class="pl-[15px] pr-[25px] flex relative z-50 justify-between h-12 container mx-auto">
                         <div
                             class="bg-white max-w-full max-slm:hidden min-w-[195px] mlg:min-w-[240px] min-h-[675px] mlg:min-h-[730px] mt-[-4px] rounded-[4px] border-t-[5px] border-t-[#ff8230]">
                             <div class="py-[19px] px-[7px] text-[15px] font-[600] text-[#ff8230]">
@@ -80,10 +81,11 @@
                         </div>
 
                         <div id="openCloseBottom"
-                            class="h-screen p-4 fixed z-50 top-[162px] left-[-100%] border max-w-[80%] bg-white transition-all duration-700 ease-in-out">
-                            <div onclick="openSidebarBottom()" class="px-4 py-4 flex items-center justify-end">
-                                <i class="text-[13px] fa-solid fa-xmark cursor-pointer"></i>
+                            class="h-screen p-4 overflow-y-scroll fixed z-50 top-[162px] left-[-100%] border max-w-[80%] bg-white transition-all duration-700 ease-in-out">
+                            <div class=" flex items-center justify-end">
+                                <i onclick="openSidebarBottom()" class="text-[13px] p-1 fa-solid fa-xmark cursor-pointer"></i>
                             </div>
+                            <div id="openCloseBottomDiv"></div>
                         </div>
 
                         <button onclick="openSidebarBottom()" class="p-2 hidden max-slm:block">
@@ -220,7 +222,7 @@
                                     <i class="fa-solid text-[10px] px-2 fa-caret-down"></i>
 
                                     <div
-                                        class="absolute top-[47px] max-h-0 w-[160px] overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-y-[30px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-auto group-hover:max-h-[300px] group-hover:p-2 group-hover:translate-y-0">
+                                        class="absolute top-[47px] z-10 max-h-0 w-[160px] overflow-hidden bg-white rounded-b-[18px] shadow-2xl text-[12px] text-black translate-y-[30px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-auto group-hover:max-h-[300px] group-hover:p-2 group-hover:translate-y-0">
                                         <p class="px-2 py-1 hover:text-[#ff8230] cursor-pointer">
                                             Hesabım
                                         </p>
@@ -240,14 +242,14 @@
                                 </div>
                             </div>
 
-                            <div class="text-[12px] ml-4 items-center justify-center gap-3 flex pr-[2px]">
-                                <a href="pages/wishlist.htm" class="p-1 hover:text-[#ffc095] transition-all duration-300">
+                            <div class="text-[12px] ml-4 items-center h-full justify-center gap-3 flex pr-[2px]">
+                                <a href="pages/wishlist.htm" class="p-1">
                                     <i class="fa-regular fa-heart text-[18px]"></i>
                                 </a>
-                                <i class="fa-solid fa-arrows-rotate text-[18px] p-1 cursor-pointer hover:text-[#ffc095] hover:rotate-180 transition-all duration-300"></i>
-                                <div>
-                                    <a href="pages/basket.htm" class="inline-block relative hover:text-[#ffc095] transition-all duration-300">
-                                        <i class="fa-solid fa-cart-shopping text-[18px]"></i>
+                                <img src="img/reverse.svg" class="w-[18px] h-[18px] brightness-0 invert hover:rotate-180 transition-all duration-300 cursor-pointer" alt="reverse">
+                                <div class="inline-block relative cursor-pointer">
+                                    <a href="/pages/basket.htm">
+                                        <img src="img/shopping.svg" class="w-[18px] h-[18px] brightness-0 invert" alt="baskett" />
                                         <span class="bg-[#0F0] absolute top-[-50%] left-[100%] text-black w-[17px] h-[17px] grid place-items-center rounded-full text-[12px]">0</span>
                                     </a>
                                 </div>

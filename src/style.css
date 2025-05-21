@@ -112,3 +112,21 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+.ui-state-default, .ui-widget-content .ui-state-default{
+    border: 1px solid #FF6800;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FF6800;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid #f2f2f2;
+    background: #f2f2f2;
+    height: 4px;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    background: #FF6800;
+}
