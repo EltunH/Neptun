@@ -32,6 +32,7 @@ async function getCategoryById(id = 1) {
 }
 
 async function getSubCategoryId(id = 1, limit = 12, page = 1) {
+    if (id == null) id = 1
     const res = await fetch(`${configObject.base}/products/subcategory/${id}?limit=${limit}&page=${page}`)
     return await res.json()
 }

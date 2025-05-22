@@ -86,6 +86,10 @@
     width: 10px;
 }
 
+.scrollBar::-webkit-scrollbar {
+    width: 2px;
+}
+
 ::-webkit-scrollbar-thumb {
     background-color: #cd6900;
 }
@@ -94,24 +98,6 @@
     background-color: #c7c7c7;
 }
 
-
-input[type="range"] {
-    -webkit-appearance: none;
-    height: 4px;
-    background: #ff660053;
-    border-radius: 4px;
-    outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
-    background: #FF6800;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
 
 .ui-state-default, .ui-widget-content .ui-state-default{
     border: 1px solid #FF6800;

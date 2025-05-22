@@ -75,7 +75,7 @@ function handleCategory() {
                         </div>
                         
                         ${item.subcategory.length > 0 ?
-                        `<div class="absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-0 h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:w-[160px] group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                        `<div class="scrollBar absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-[160px] h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
                             ${item.subcategory.map(sub => `<a href="/pages/category.htm?id=${sub.id}&page=1&limit=12" class="block px-2 py-1 text-[14px] hover:text-[#ff8230] capitalize hover:underline">${sub.categoryName}</a>`).join("")}
                         </div>`: ''}
                 </li>`;
