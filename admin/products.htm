@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://pagination.js.org/dist/2.6.0/pagination.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css" />
+
+    <link rel="stylesheet" href="/src/pagination.css">
     <link rel="stylesheet" href="../src/output.css" />
     <link rel="stylesheet" href="../src/input.css" />
 </head>
@@ -18,7 +22,7 @@
             <div class="mt-5 flex flex-grow flex-col">
                 <nav class="flex-1 space-y-1 px-2 pb-4"><a
                         class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
-                        href="/admin"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        href="/admin/admin.htm"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"
                             class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -72,7 +76,6 @@
             </div>
         </div>
     </header>
-    
     <main>
         <div class="flex flex-1 flex-col md:pl-64">
             <div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow"><button type="button"
@@ -127,26 +130,81 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1">
-                <section>
-                    <div class="container mx-auto flex flex-col items-center py-10 text-center md:py-20 xl:max-w-3xl">
-                        <h1 class="text-4xl font-bold leading-none sm:text-5xl">Salammm!!!</h1>
-                        <p class="my-6 text-xl">Bura Admin hissəsidir. Burada ağıllı olmaq və bəzi şeyləri qurcalamamaq
-                            lazımdır!</p>
-                        <div class="flex flex-wrap justify-center">
-                            <a class="px-8 py-3 m-2 text-md font-semibold rounded text-white bg-[#ff8300]"
-                                href="/admin/products.htm">Məhsul əlavə et</a>
-                            <a class="px-6 py-3 m-2 text-md bg-slate-800 text-white rounded" href="#">Kataqoriya əlavə
-                                et</a>
+            <main class="flex-1">
+                <section class="px-6">
+                    <h1 class="text-[1.25em] mt-16 mb-4 text-center font-semibold">Məhsulların idarə olunmasi formu:
+                    </h1>
+                    <button onclick="openCloseProduct()"
+                        class="bg-[#ff8300] float-end text-white p-3 rounded-md font-semibold hover:bg-[#d58733] transition-all duration-300">+
+                        Məhsul əlavə et
+                    </button>
+                    <fieldset class="w-full space-y-1 py-5">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                                <button type="button" title="search" class="p-1 focus:outline-none focus:ring">
+                                    <svg fill="currentColor" viewBox="0 0 512 512" class="w-4 h-4 dark:text-gray-800">
+                                        <path
+                                            d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </span>
+                            <input type="search" name="Search" placeholder="Məhsulun adını daxil edin..."
+                                class="w-[100%] py-4 pl-10 text-sm rounded-md focus:outline-none border-2 focus:dark:bg-gray-50 focus:dark:border-default-600">
+                        </div>
+                    </fieldset>
+                    <div class="flex flex-col">
+                        <div class="overflow-x-auto">
+                            <div class="inline-block min-w-full py-2 align-middle md:px-0 lg:px-0">
+                                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-300">
+                                        <thead class="bg-slate-700 text-white">
+                                            <tr>
+                                                <th colspan="4" scope="col" class="px-6 py-2 text-center text-[1.3em]">Məhsullar siyahısı!</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"
+                                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
+                                                    Şəkil, ad və kateqoriya</th>
+                                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
+                                                    Endirim</th>
+                                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
+                                                    Qiymet</th>
+                                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Edit
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tblProduct" class="divide-y divide-gray-200 bg-white"></tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div id="pageBtn" class="text-[11px] mb-8 flex justify-center gap-x-1"></div>
                 </section>
-            </div>
+                <div onclick="openCloseProduct()" id="openDiv"
+                    class="fixed hidden inset-0 bg-[#00000045] z-[9999] place-items-center">
+                    <div onclick="openCloseProduct(event)"
+                        class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-xl sm:p-11">
+                        <div class="flex justify-between pb-4 border-b border-gray-500">
+                            <p class="font-bold text-xl">Yeni Məhsul əlavə et</p>
+                            <svg onclick="openCloseProduct()" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                data-slot="icon" class="text-gray-400 w-6 cursor-pointer hover:text-red-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script src="/js/pagination.js"></script>
     <script type="module" src="../js/admin/admin.js"></script>
-    <script type="module" src="../js/auth/login.js"></script>
+    <script type="module" src="../js/admin/products.js"></script>
 
 
 </body>

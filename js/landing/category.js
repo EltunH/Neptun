@@ -51,7 +51,7 @@ window.btnChangePage = (arg) => {
         pageSize: 1,
         pageNumber: page,
         callback: function (data, pagination) {
-            clickPage(pagination.pageNumber)
+            clickkPage(pagination.pageNumber)
         }
     })
 }
@@ -165,8 +165,6 @@ window.prodSideFiltr = (div, i) => {
 window.openFtr = () => openFtrUl()
 
 window.filtrization = () => {
-
-
     let sortArr = copyData.sort((a, b) => a.price - b.price)
     minMax[0] = sortArr[0].price
     minMax[1] = sortArr.at(-1).price
@@ -190,5 +188,3 @@ window.filtrization = () => {
         $('#maxSp').html(`${minMax[1]} ₼`)
     });
 }
-
-
