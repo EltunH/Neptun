@@ -1,25 +1,80 @@
-import { getAllProductsFetch } from "../../services/api.js"
+import { addToProduct, getAllProductsFetch, getCategoriesFetch } from "../../services/api.js"
 
 const openDiv = document.getElementById('openDiv')
 const tblProduct = document.getElementById('tblProduct')
+const prodName = document.getElementById('prodName')
+const prodCat = document.getElementById('prodCat')
+const prodSubCat = document.getElementById('prodSubCat')
+const prodDisc = document.getElementById('prodDisc')
+const prodPrice = document.getElementById('prodPrice')
+const prodPop = document.getElementById('prodPop')
+const prodPhoto = document.getElementById('prodPhoto')
+const prodDesc = document.getElementById('prodDesc')
+const prodMeta = document.getElementById('prodMeta')
 
 let count = 0
+const catArr = []
 
-window.openCloseProduct = (e) => {
-    e?.preventDefault()
-    openDiv.classList.toggle('!grid')
+getCategoriesFetch()
+    .then(res => {
+        handleSubCat()
+        catArr.length = 0
+        catArr.push(...res)
+        prodCat.innerHTML = `<option value="0">Kateqoriya seçin:</option>`
+        res.map(item => {
+            prodCat.innerHTML += `<option class="capitalize" value="${item.id}">${item.categoryName}</option>`
+        })
+    })
+
+window.handleSubCat = () => {
+    prodSubCat.innerHTML = `<option value="0">Subkateqoriya seçin:</option>`
+    catArr.find(item => item.id == prodCat.value)?.subcategory?.map(sub => {
+        prodSubCat.innerHTML += `<option class="capitalize" value="${sub.id}">${sub.categoryName}</option>`
+    })
+}
+
+window.addProduct = () => {
+    if (validationObj()) return
+    const obj = JSON.stringify({
+        name: prodName.value,
+        isTopSelling: prodPop.checked,
+        price: prodPrice.value,
+        discount: prodDisc.value,
+        img: [
+            prodPhoto.value
+        ],
+        categoryId: prodCat.value,
+        subcategoryId: prodSubCat.value,
+        description: prodDesc.value,
+        metadata: prodMeta.value
+    })
+    addToProduct(obj)
+        .then(res => {
+            if (!res.status) return
+            else {
+                alert('Məhsul əlavə edildi!')
+                prodName.value = ''
+                prodCat.value = '0'
+                prodSubCat.value = '0'
+                prodDisc.value = ''
+                prodPrice.value = ''
+                prodPhoto.value = ''
+                prodDesc.value = ''
+                prodMeta.value = ''
+            }
+        })
 }
 
 function clickPage(page = 1) {
     getAllProductsFetch(100, page)
-    .then(res => {
-        if(count == 0) {
-            btnChangePage(res.totalPages)
-            count++
-        }
-        tblProduct.innerHTML = ''
-        res.products.map(item => {
-            tblProduct.innerHTML += `
+        .then(res => {
+            if (count == 0) {
+                btnChangePage(res.totalPages)
+                count++
+            }
+            tblProduct.innerHTML = ''
+            res.products.map(item => {
+                tblProduct.innerHTML += `
                 <tr class="hover:bg-gray-200">
                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <div class="flex items-center">
@@ -64,8 +119,8 @@ function clickPage(page = 1) {
                         </div>
                     </td>
                 </tr>`;
+            })
         })
-    })
 }
 clickPage(1)
 
@@ -81,6 +136,12 @@ function btnChangePage(arg) {
             clickPage(pagination.pageNumber)
         }
     })
+}
+
+window.openCloseProduct = (e) => {
+    e?.preventDefault()
+    openDiv.classList.toggle('!grid')
+    document.body.classList.toggle('overflow-hidden')
 }
 
 function loadPage() {
@@ -134,3 +195,51 @@ function loadPage() {
     })
 }
 loadPage()
+
+function validationObj() {
+    prodName.style.border = '1px solid #ccc'
+    prodPrice.style.border = '1px solid #ccc'
+    prodDisc.style.border = '1px solid #ccc'
+    prodPhoto.style.border = '1px solid #ccc'
+    prodCat.style.border = '1px solid #ccc'
+    prodSubCat.style.border = '1px solid #ccc'
+    prodDesc.style.border = '1px solid #ccc'
+    prodMeta.style.border = '1px solid #ccc'
+    if (prodName.value.trim() == '') {
+        prodName.style.border = '1px solid red'
+        prodName.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (prodCat.value == '0') {
+        prodCat.style.border = '1px solid red'
+        prodCat.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (prodSubCat.value == '0') {
+        prodSubCat.style.border = '1px solid red'
+        prodSubCat.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (prodDisc.value.trim() == '') {
+        prodDisc.style.border = '1px solid red'
+        prodDisc.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (prodPrice.value.trim() == '') {
+        prodPrice.style.border = '1px solid red'
+        prodPrice.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+    if (prodPhoto.value.trim() == '') {
+        prodPhoto.style.border = '1px solid red'
+        prodPhoto.focus()
+        alert('Xanaları doldurun!')
+        return true
+    }
+
+}

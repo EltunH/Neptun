@@ -13,7 +13,7 @@ window.girisEt = () => {
     })
     login(obj)
         .then(res => {
-            if (res.errors) {
+            if (res.error) {
                 emailInp.value = ''
                 passwordInp.value = ''
                 return alert('Mail və ya şifrə yanlışdır!')

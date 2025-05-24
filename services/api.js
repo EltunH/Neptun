@@ -62,6 +62,29 @@ async function verifyToken() {
     return await res.json()
 }
 
+async function register(obj) {
+    const res = await fetch(`${configObject.base}/auth/register`, {
+        method: 'POST',
+        body: obj,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+    return await res.json()
+}
+
+async function addToProduct(obj) {
+    const res = await fetch(`${configObject.base}/products`, {
+        method: 'POST',
+        body: obj,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    return await res.json()
+}
+
 export {
     getAllProductsFetch,
     getAllProductsIdFetch,
@@ -72,5 +95,7 @@ export {
     getSubCategoryId,
     getProductId,
     login,
-    verifyToken
+    verifyToken,
+    register,
+    addToProduct
 }

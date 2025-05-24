@@ -51,7 +51,7 @@ window.btnChangePage = (arg) => {
         pageSize: 1,
         pageNumber: page,
         callback: function (data, pagination) {
-            clickkPage(pagination.pageNumber)
+            clickPage(pagination.pageNumber)
         }
     })
 }
