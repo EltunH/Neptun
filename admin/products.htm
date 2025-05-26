@@ -31,7 +31,7 @@
                             </path>
                         </svg>Ana səhifə</a><a
                         class="text-gray-800 hover:bg-gray-50 focus:bg-gray-100 group flex items-center px-2 py-2.5 text-sm font-medium rounded-md"
-                        href="/admin/products.htm"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        href="/admin/products.htm?page=1"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
                             data-slot="icon" class="text-gray-900 mr-3 flex-shrink-0 h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -148,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1">
+            <div class="flex-1">
                 <section class="px-6">
                     <h1 class="text-[1.25em] mt-16 mb-4 text-center font-semibold">Məhsulların idarə olunmasi formu:
                     </h1>
@@ -208,7 +208,7 @@
                 <div onclick="openCloseProduct()" id="openDiv"
                     class="fixed hidden inset-0 bg-[#00000045] overflow-y-scroll z-[9999] place-items-center">
                     <div class=" w-full sm:max-w-xl">
-                        <div onclick="openCloseProduct(event)"
+                        <div onclick="event.stopPropagation()"
                             class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:p-11">
                             <div class="flex justify-between pb-4 border-b border-gray-500">
                                 <p class="font-bold text-xl">Yeni Məhsul əlavə et</p>
@@ -224,7 +224,7 @@
                                 <label for="prodName" class="cursor-pointer block text-[12px] py-2 font-bold text-gray-700 uppercase">Məhsulun
                                     adı:</label>
                                 <input id="prodName" type="text"
-                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm"
+                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm"
                                     placeholder="Məhsulun adı" />
                             </div>
 
@@ -233,7 +233,7 @@
                                     class="cursor-pointer block text-[12px] py-2 font-bold text-gray-700 uppercase">Kateqoriya
                                     seçin:</label>
                                 <select id="prodCat" onchange="handleSubCat()"
-                                    class="block w-full capitalize rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm">
+                                    class="block w-full capitalize rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm">
                                 </select>
                             </div>
 
@@ -241,7 +241,7 @@
                                 <label for="prodSubCat"
                                     class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Subkateqoriya:</label>
                                 <select id="prodSubCat"
-                                    class="block w-full capitalize rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm">
+                                    class="block w-full capitalize rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm">
                                 </select>
                             </div>
 
@@ -249,21 +249,21 @@
                                 <label for="prodDisc" class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Endirim
                                     Miqdarı (%):</label>
                                 <input id="prodDisc" type="number" placeholder="0"
-                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm" />
+                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm" />
                             </div>
 
                             <div class="my-3">
                                 <label for="prodPrice" class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Məhsulun
                                     qiyməti:</label>
                                 <input id="prodPrice" type="number" placeholder="123"
-                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm" />
+                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm" />
                             </div>
                             
                             <div class="my-3">
                                 <label for="prodPhoto" class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Məhsulun
                                     şəkli:</label>
                                 <input id="prodPhoto" type="text" placeholder="URL"
-                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-indigo-600 shadow-sm" />
+                                    class="block w-full rounded-md border-gray-300 bg-gray-50 p-2 border outline-none shadow-sm" />
                             </div>
 
                             <div class="my-6 flex items-center gap-10">
@@ -277,7 +277,7 @@
                                 <label for="prodDesc" class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Məhsul haqqında
                                     məlumat</label>
                                 <textarea id="prodDesc"
-                                    class="text-sm block w-full rounded-md h-24 border-gray-400 p-2 border outline-indigo-600 shadow-sm"
+                                    class="text-sm block w-full rounded-md h-24 border-gray-400 p-2 border outline-none shadow-sm"
                                     placeholder="Məhsul haqqında məlumatları daxil edin..."></textarea>
                             </div>
 
@@ -285,17 +285,45 @@
                                 <label for="prodMeta" class="block text-[12px] py-2 font-bold text-gray-700 uppercase">Meta
                                     məlumat</label>
                                 <textarea id="prodMeta"
-                                    class="text-sm block w-full rounded-md h-24 border-gray-400 p-2 border outline-indigo-600 shadow-sm"
+                                    class="text-sm block w-full rounded-md h-24 border-gray-400 p-2 border outline-none shadow-sm"
                                     placeholder="Meta məlumatları daxil edin..."></textarea>
                             </div>
-                            <button onclick="addProduct()" class="bg-[#ff8300] block mx-auto w-full sm:w-32 text-white rounded-md p-2 px-3 font-semibold">
+                            <button onclick="addProduct()" id="btnAdd" class="bg-[#ff8300] disabled:opacity-50 block mx-auto w-full sm:w-32 text-white rounded-md p-2 px-3 font-semibold">
                                 Əlavə et
                             </button>
                         </div>
                     </div>
                 </div>
 
-            </main>
+            </div>
+        </div>
+
+        <div onclick="openDelModal()" id="delModal" class="fixed hidden inset-0 z-10 bg-[#0000003b] overflow-y-auto">
+            <div class="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
+                <div onclick="event.stopPropagation()"
+                    class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                    <div
+                        class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:h-10 sm:w-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true" data-slot="icon" class="h-6 w-6 text-red-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-center py-2 text-lg font-bold">Məhsulu <span class="text-red-700">silmək</span>
+                        istədiyinizə əminsiz?</p>
+                    <div class="mt-5 flex gap-2 text-center justify-center flex-row-reverse">
+                        <button onclick="sil()" type="button"
+                            class="inline-flex justify-center rounded-md border border-transparent bg-red-600 px-6 py-2 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Bəli
+                        </button>
+                        <button onclick="openDelModal()" type="button" class="inline-flex justify-center rounded-md border border-gray-300
+                            bg-blue-600  px-6 py-2 text-white hover:bg-blue-700 
+                            focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                            focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">Xeyr</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

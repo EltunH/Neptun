@@ -42,6 +42,15 @@ async function getProductId(id) {
     return await res.json()
 }
 
+async function verifyToken() {
+    const res = await fetch(`${configObject.base}/auth/verify-token`, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    return await res.json()
+}
+
 async function login(obj) {
     const res = await fetch(`${configObject.base}/auth/login`, {
         method: 'POST',
@@ -49,15 +58,6 @@ async function login(obj) {
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
-    })
-    return await res.json()
-}
-
-async function verifyToken() {
-    const res = await fetch(`${configObject.base}/auth/verify-token`, {
-        headers: {
-            'Authorization': 'Bearer ' + token
-        }
     })
     return await res.json()
 }
@@ -85,6 +85,29 @@ async function addToProduct(obj) {
     return await res.json()
 }
 
+async function putProduct(id, obj) {
+    const res = await fetch(`${configObject.base}/products/${id}`, {
+        method: 'PUT',
+        body: obj,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    return await res.json()
+}
+
+async function delProduct(id) {
+    const res = await fetch(`${configObject.base}/products/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    return await res.json()
+}
+
 export {
     getAllProductsFetch,
     getAllProductsIdFetch,
@@ -97,5 +120,7 @@ export {
     login,
     verifyToken,
     register,
-    addToProduct
+    addToProduct,
+    putProduct,
+    delProduct
 }

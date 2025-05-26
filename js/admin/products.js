@@ -1,4 +1,4 @@
-import { addToProduct, getAllProductsFetch, getCategoriesFetch } from "../../services/api.js"
+import { addToProduct, delProduct, getAllProductsFetch, getCategoriesFetch, putProduct } from "../../services/api.js"
 
 const openDiv = document.getElementById('openDiv')
 const tblProduct = document.getElementById('tblProduct')
@@ -11,9 +11,14 @@ const prodPop = document.getElementById('prodPop')
 const prodPhoto = document.getElementById('prodPhoto')
 const prodDesc = document.getElementById('prodDesc')
 const prodMeta = document.getElementById('prodMeta')
+const btnAdd = document.getElementById('btnAdd')
+const delModal = document.getElementById('delModal')
 
+const params = new URLSearchParams(location.search)
 let count = 0
+let page = 1
 const catArr = []
+let ID = null
 
 getCategoriesFetch()
     .then(res => {
@@ -35,37 +40,23 @@ window.handleSubCat = () => {
 
 window.addProduct = () => {
     if (validationObj()) return
-    const obj = JSON.stringify({
-        name: prodName.value,
-        isTopSelling: prodPop.checked,
-        price: prodPrice.value,
-        discount: prodDisc.value,
-        img: [
-            prodPhoto.value
-        ],
-        categoryId: prodCat.value,
-        subcategoryId: prodSubCat.value,
-        description: prodDesc.value,
-        metadata: prodMeta.value
-    })
-    addToProduct(obj)
+    btnAdd.disabled = true
+    addToProduct(getValues())
         .then(res => {
             if (!res.status) return
             else {
                 alert('Məhsul əlavə edildi!')
-                prodName.value = ''
-                prodCat.value = '0'
-                prodSubCat.value = '0'
-                prodDisc.value = ''
-                prodPrice.value = ''
-                prodPhoto.value = ''
-                prodDesc.value = ''
-                prodMeta.value = ''
+                clearValues()
             }
-        })
+        }).finally(_ => btnAdd.disabled = false)
 }
 
-function clickPage(page = 1) {
+function clickPage(arg) {
+    page = arg || params.get('page')
+    params.set('page', page)
+    const newUrl = `${location.pathname}?${params.toString()}`
+    history.pushState(null, "", newUrl)
+
     getAllProductsFetch(100, page)
         .then(res => {
             if (count == 0) {
@@ -96,7 +87,7 @@ function clickPage(page = 1) {
                             class="inline-flex px-2">${item.totalPrice.toFixed(2)} ₼</span></td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         <div class="flex gap-2">
-                            <svg stroke="currentColor" fill="none"
+                            <svg onclick='openCloseProduct(${JSON.stringify(item)})' stroke="currentColor" fill="none"
                                 stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                                 stroke-linejoin="round"
                                 class="text-[1.1em] text-[blue] cursor-pointer" height="1em"
@@ -108,7 +99,7 @@ function clickPage(page = 1) {
                                     d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
                                 </path>
                             </svg>
-                            <svg stroke="currentColor" fill="currentColor"
+                            <svg onclick="openDelModal(${item.id})" stroke="currentColor" fill="currentColor"
                                 stroke-width="0" viewBox="0 0 448 512"
                                 class="text-[1.1em] text-[red] cursor-pointer" height="1em"
                                 width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +113,8 @@ function clickPage(page = 1) {
             })
         })
 }
-clickPage(1)
+clickPage()
+
 
 function btnChangePage(arg) {
     pageBtn.innerHTML = ''
@@ -130,7 +122,7 @@ function btnChangePage(arg) {
     $('#pageBtn').pagination({
         dataSource: arrBtn,
         pageSize: 1,
-        pageNumber: 1,
+        pageNumber: params.get('page'),
         callback: function (data, pagination) {
             loadPage()
             clickPage(pagination.pageNumber)
@@ -138,10 +130,55 @@ function btnChangePage(arg) {
     })
 }
 
-window.openCloseProduct = (e) => {
-    e?.preventDefault()
+window.openCloseProduct = (arg) => {
+    ID = arg?.subcategoryId ?? null
+    btnAdd.innerHTML = arg ? 'Dəyişiklik et' : 'Əlavə et'
+
     openDiv.classList.toggle('!grid')
     document.body.classList.toggle('overflow-hidden')
+    if (arg) {
+        prodName.value = arg.name
+        prodCat.value = arg.categoryId
+        prodSubCat.innerHTML = ''
+        catArr.find(item => arg.categoryId == item.id).subcategory?.map(sub => {
+            prodSubCat.innerHTML += `<option value="${sub.id}" ${sub.id == ID ? 'selected' : ''}>${sub.categoryName}</option>`
+        })
+        prodPop.checked = arg.isTopSelling
+        prodDisc.value = arg.discount
+        prodPrice.value = arg.price
+        prodPhoto.value = arg.img[0]
+        prodDesc.value = arg.description
+        prodMeta.value = arg.metadata
+        btnAdd.onclick = () => changeProduct(arg)
+    }
+    else clearValues()
+}
+
+function changeProduct(arg) {
+    if (validationObj()) return
+    btnAdd.disabled = true
+    putProduct(arg.id, getValues())
+        .then(res => {
+            console.log(res)
+            clickPage(page)
+        })
+        .finally(_ => {
+            btnAdd.disabled = false
+            openCloseProduct()
+        })
+    btnAdd.onclick = addProduct
+}
+
+window.openDelModal = (arg) => {
+    ID = arg ?? null
+    console.log(ID)
+    delModal.classList.toggle('hidden')
+}
+
+window.sil = () => {
+    delProduct(ID)
+        .then(res => res.error ? alert('Server xətası developelə əlaqə saxlayın') : '')
+    openDelModal()
 }
 
 function loadPage() {
@@ -241,5 +278,32 @@ function validationObj() {
         alert('Xanaları doldurun!')
         return true
     }
+}
 
+function getValues() {
+    return JSON.stringify({
+        name: prodName.value,
+        isTopSelling: prodPop.checked,
+        price: prodPrice.value,
+        discount: prodDisc.value,
+        img: [
+            prodPhoto.value
+        ],
+        categoryId: prodCat.value,
+        subcategoryId: prodSubCat.value,
+        description: prodDesc.value,
+        metadata: prodMeta.value
+    })
+}
+
+function clearValues() {
+    prodName.value = ''
+    prodCat.value = '0'
+    prodSubCat.value = '0'
+    prodPop.checked = false
+    prodDisc.value = ''
+    prodPrice.value = ''
+    prodPhoto.value = ''
+    prodDesc.value = ''
+    prodMeta.value = ''
 }
