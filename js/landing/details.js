@@ -14,6 +14,7 @@ getProductId(detailId)
 
 
 function showDetails(data) {
+    console.log(data)
     smallMenu.innerHTML = `
         <a href="/index.htm" class="cursor-pointer">Ana səhifə</a>
         <span>></span>
@@ -50,7 +51,7 @@ function showDetails(data) {
                 <i class="fa-solid fa-square-check"></i>
                 <span>Anbarda</span>
             </div>
-            <p class="mt-[22px] mb-[15px] text-[#ff8230] text-[31px] font-bold">${data.price}₼</p>
+            <p class="mt-[22px] mb-[15px] text-[#ff8230] text-[31px] font-bold">${(data.price -  (data.price * data.discount / 100)).toFixed(2)}₼</p>
             <div class="">
                 <button onclick='incDec(-1, ${JSON.stringify(data)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
                 <span id="xana${data.id}" class="text-[12px] font-bold px-3">1</span>

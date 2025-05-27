@@ -130,26 +130,26 @@ function btnChangePage(arg) {
     })
 }
 
-window.openCloseProduct = (arg) => {
-    ID = arg?.subcategoryId ?? null
-    btnAdd.innerHTML = arg ? 'Dəyişiklik et' : 'Əlavə et'
+window.openCloseProduct = (elem) => {
+    ID = elem?.subcategoryId ?? null
+    btnAdd.innerHTML = elem ? 'Dəyişiklik et' : 'Əlavə et'
 
     openDiv.classList.toggle('!grid')
     document.body.classList.toggle('overflow-hidden')
-    if (arg) {
-        prodName.value = arg.name
-        prodCat.value = arg.categoryId
+    if (elem) {
+        prodName.value = elem.name
+        prodCat.value = elem.categoryId
         prodSubCat.innerHTML = ''
-        catArr.find(item => arg.categoryId == item.id).subcategory?.map(sub => {
+        catArr.find(item => elem.categoryId == item.id).subcategory?.map(sub => {
             prodSubCat.innerHTML += `<option value="${sub.id}" ${sub.id == ID ? 'selected' : ''}>${sub.categoryName}</option>`
         })
-        prodPop.checked = arg.isTopSelling
-        prodDisc.value = arg.discount
-        prodPrice.value = arg.price
-        prodPhoto.value = arg.img[0]
-        prodDesc.value = arg.description
-        prodMeta.value = arg.metadata
-        btnAdd.onclick = () => changeProduct(arg)
+        prodPop.checked = elem.isTopSelling
+        prodDisc.value = elem.discount
+        prodPrice.value = elem.price
+        prodPhoto.value = elem.img[0]
+        prodDesc.value = elem.description
+        prodMeta.value = elem.metadata
+        btnAdd.onclick = () => changeProduct(elem)
     }
     else clearValues()
 }
@@ -159,14 +159,14 @@ function changeProduct(arg) {
     btnAdd.disabled = true
     putProduct(arg.id, getValues())
         .then(res => {
-            console.log(res)
+            if(res.id) alert('Dəyişiklik uğurlu oldu.')
             clickPage(page)
         })
         .finally(_ => {
             btnAdd.disabled = false
             openCloseProduct()
+            btnAdd.onclick = addProduct
         })
-    btnAdd.onclick = addProduct
 }
 
 window.openDelModal = (arg) => {

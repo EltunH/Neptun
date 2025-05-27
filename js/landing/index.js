@@ -89,7 +89,10 @@ getCategoryById()
     .then(data => slideShow("productsCategory", data.products));
 
 getDiscFetch()
-    .then(data => slideShow('discDiv', data.products))
+    .then(data => {
+        slideShow('discDiv', data.products)
+        console.log(data)
+    })
 
 getPopulyarFetch()
     .then(data => {

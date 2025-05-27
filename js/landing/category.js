@@ -8,7 +8,6 @@ const sideLeftDiv = document.getElementById('sideLeftDiv')
 const prodContent = document.getElementById('prodContent')
 const limitSelect = document.getElementById('limitSelect')
 const pageBtn = document.getElementById('pageBtn')
-const priceInp = document.getElementById('priceInp')
 
 const data = []
 const copyData = []
@@ -74,6 +73,7 @@ getCatProdct(true)
 
 function showCatProdct() {
     prodContent.innerHTML = ''
+    console.log(data)
     data.forEach(item => {
         prodContent.innerHTML += `
             <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
@@ -83,7 +83,7 @@ function showCatProdct() {
                 <p class="uppercase text-[10px] h-[30px] mt-[10px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
                     <a href="details.htm?id=${item.id}" class="cursor-pointer hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                 </p>
-                <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">${item.price}₼</p>
+                <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">${item.totalPrice.toFixed(2)}₼</p>
                 <div class="flex justify-center items-center">
                     <button onclick='incDec(-1, ${JSON.stringify(item)})' class="text-[#ff8300] p-[6px_12px] text-[25px]">‒</button>
                     <span id="xana${item.id}" class="text-[12px] font-bold px-3">1</span>
@@ -165,9 +165,9 @@ window.prodSideFiltr = (div, i) => {
 window.openFtr = () => openFtrUl()
 
 window.filtrization = () => {
-    let sortArr = copyData.sort((a, b) => a.price - b.price)
-    minMax[0] = sortArr[0].price
-    minMax[1] = sortArr.at(-1).price
+    let sortArr = copyData.sort((a, b) => a.totalPrice - b.totalPrice)
+    minMax[0] = sortArr[0].totalPrice
+    minMax[1] = sortArr.at(-1).totalPrice
     $(() => {
         $("#slider-range").slider({
             range: true,
@@ -177,7 +177,7 @@ window.filtrization = () => {
             values: minMax,
             slide: function (event, ui) {
                 data.length = 0
-                data.push(...sortArr.filter(item => item.price >= ui.values[0] && item.price <= ui.values[1]))
+                data.push(...sortArr.filter(item => item.totalPrice >= ui.values[0] && item.totalPrice <= ui.values[1]))
 
                 $('#minSp').html(`${ui.values[0]} ₼`)
                 $('#maxSp').html(`${ui.values[1]} ₼`)

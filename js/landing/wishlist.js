@@ -48,13 +48,13 @@ function showFavourite() {
                             src="${item.img[0]}">
                         <div class="sm:hidden max-mini:text-center">
                             <p class="font-semibold">${item.name}</p>
-                            <p class="text-orange-500 text-[15px]">${item.price} ₼</p>
+                            <p class="text-orange-500 text-[15px]">${(item.price -  (item.price * item.discount / 100)).toFixed(2)} ₼</p>
                         </div>
                     </div>
                     <div class="py-2 px-4 hidden sm:table-cell font-medium">${item.name}</div>
                 </div>
                 <div class="flex gap-[15px]">
-                    <div class="py-2 px-4 hidden sm:table-cell text-orange-500 font-semibold text-nowrap">${item.price} ₼</div>
+                    <div class="py-2 px-4 hidden sm:table-cell text-orange-500 font-semibold text-nowrap">${(item.price -  (item.price * item.discount / 100)).toFixed(2)} ₼</div>
                     <div class="py-2 px-4">
                         <div class="flex gap-2">
                             <button onclick='fromToBasket(${JSON.stringify(item,)})'
