@@ -794,10 +794,6 @@ video {
   top: -50%;
 }
 
-.top-\[-5px\]{
-  top: -5px;
-}
-
 .top-\[10px\]{
   top: 10px;
 }
@@ -852,6 +848,10 @@ video {
 
 .z-\[99\]{
   z-index: 99;
+}
+
+.z-\[999999999999\]{
+  z-index: 999999999999;
 }
 
 .float-start{
@@ -1321,6 +1321,10 @@ video {
   height: 100vh;
 }
 
+.h-\[100vh\]{
+  height: 100vh;
+}
+
 .max-h-0{
   max-height: 0px;
 }
@@ -1331,6 +1335,10 @@ video {
 
 .min-h-\[15px\]{
   min-height: 15px;
+}
+
+.min-h-\[166px\]{
+  min-height: 166px;
 }
 
 .min-h-\[40px\]{
@@ -1536,6 +1544,14 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-\[full\]{
+  width: full;
+}
+
+.w-\[100vh\]{
+  width: 100vh;
 }
 
 .min-w-\[195px\]{
@@ -2835,11 +2851,6 @@ video {
   background-color: #29292991;
 }
 
-.bg-\[\#43766C\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 118 108 / var(--tw-bg-opacity, 1));
-}
-
 .bg-\[\#f2f2f2\]{
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity, 1));
@@ -2913,6 +2924,11 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-700{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'\/img\/right\.svg\'\)\]{
@@ -3667,11 +3683,6 @@ video {
 
 .text-\[\#336699\]\/\[\.35\]{
   color: rgb(51 102 153 / .35);
-}
-
-.text-\[\#43766C\]{
-  --tw-text-opacity: 1;
-  color: rgb(67 118 108 / var(--tw-text-opacity, 1));
 }
 
 .text-\[\#4e4e4e\]{
@@ -4983,20 +4994,20 @@ video {
 }
 
 @media not all and (min-width: 315px){
-  .max-small\:h-\[30px\]{
-    height: 30px;
-  }
-
   .max-small\:h-\[25px\]{
     height: 25px;
   }
 
-  .max-small\:w-\[30px\]{
-    width: 30px;
+  .max-small\:h-\[30px\]{
+    height: 30px;
   }
 
   .max-small\:w-\[25px\]{
     width: 25px;
+  }
+
+  .max-small\:w-\[30px\]{
+    width: 30px;
   }
 }
 
@@ -5021,11 +5032,6 @@ video {
 }
 
 @media (min-width: 640px){
-  .sm\:-mx-6{
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
-
   .sm\:mx-auto{
     margin-left: auto;
     margin-right: auto;
@@ -5177,11 +5183,6 @@ video {
 
   .md\:top-\[14\%\]{
     top: 14%;
-  }
-
-  .md\:mx-0{
-    margin-left: 0px;
-    margin-right: 0px;
   }
 
   .md\:ml-0{

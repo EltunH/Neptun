@@ -73,7 +73,6 @@ getCatProdct(true)
 
 function showCatProdct() {
     prodContent.innerHTML = ''
-    console.log(data)
     data.forEach(item => {
         prodContent.innerHTML += `
             <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">

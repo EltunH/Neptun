@@ -14,7 +14,6 @@ getProductId(detailId)
 
 
 function showDetails(data) {
-    console.log(data)
     smallMenu.innerHTML = `
         <a href="/index.htm" class="cursor-pointer">Ana səhifə</a>
         <span>></span>

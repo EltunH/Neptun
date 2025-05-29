@@ -171,7 +171,6 @@ function changeProduct(arg) {
 
 window.openDelModal = (arg) => {
     ID = arg ?? null
-    console.log(ID)
     delModal.classList.toggle('hidden')
 }
 

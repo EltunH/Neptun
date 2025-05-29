@@ -3,9 +3,11 @@ import { openFtrUl } from "./footer.js";
 const news = document.getElementById('news')
 const contentBasket = document.getElementById('contentBasket')
 const totalAmount = document.getElementById('totalAmount')
+const marketCount = document.getElementById('marketCount')
 
 const basket = JSON.parse(localStorage.getItem('basket')) || []
 
+marketCount.innerHTML = basket.length
 let newsTimer;
 
 function addToBasket(elm, prodCount = 1) {
@@ -30,6 +32,7 @@ function addToBasket(elm, prodCount = 1) {
 
     news.style.right = '10px'
     newsTimer = setTimeout(() => { news.style.right = '-100%' }, 4000)
+    marketCount.innerHTML = basket.length
 }
 
 function showBaket() {
@@ -51,7 +54,7 @@ function showBaket() {
                 <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">${item.name}</td>
                 <td class="px-3 py-4 w-fit text-center text-sm text-gray-500 sm:table-cell">
                     <div class="flex items-center">
-                        <svg stroke="currentColor" fill="currentColor"
+                        <svg onclick='changeCountBasket(-1, ${JSON.stringify(item)})' stroke="currentColor" fill="currentColor"
                             stroke-width="0" viewBox="0 0 1024 1024"
                             class="text-[#ff8300] cursor-pointer active:scale-105 text-[27px] block"
                             height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +63,7 @@ function showBaket() {
                             </path>
                         </svg>
                         <span class="px-2">${item.count} ədəd</span>
-                        <svg stroke="currentColor"
+                        <svg onclick='changeCountBasket(1, ${JSON.stringify(item)})' stroke="currentColor"
                             fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
                             class="text-[#ff8300] active:scale-105 cursor-pointer text-[27px] block"
                             height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -86,10 +89,21 @@ function showBaket() {
             </tr>`;
         })
 
-        totalAmount.innerHTML = basket.reduce((sum, item) => sum + +((item.price - (item.price * item.discount / 100)) * item.count).toFixed(2), 0)
+        totalAmount.innerHTML = basket.reduce((sum, item) => sum + +((item.price - (item.price * item.discount / 100)) * item.count), 0).toFixed(2)
     }
 }
 showBaket()
+
+window.changeCountBasket = (x, elem) => {
+    basket.find(item => {
+        if (item.id == elem.id) {
+            item.count += x
+            if (item.count == 0) delBasket(item.id)
+        }
+    })
+    localStorage.setItem('basket', JSON.stringify(basket))
+    showBaket()
+}
 
 window.delBasket = (id) => {
     let yoxla = basket.filter(item => item.id !== id)
@@ -97,9 +111,8 @@ window.delBasket = (id) => {
     basket.push(...yoxla)
     localStorage.setItem('basket', JSON.stringify(basket))
     showBaket()
+    marketCount.innerHTML = basket.length
 }
-
-
 
 window.closenews = () => news.style.right = '-150%'
 

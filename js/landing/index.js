@@ -91,7 +91,6 @@ getCategoryById()
 getDiscFetch()
     .then(data => {
         slideShow('discDiv', data.products)
-        console.log(data)
     })
 
 getPopulyarFetch()
@@ -114,7 +113,7 @@ function slideShow(id, data) {
             <article class="swiper-slide rounded-lg overflow-hidden">
                 <div class="relative w-full p-[0_10px_17px]">
                     <a href="pages/details.htm?id=${item.id}" class="block">
-                        <img src="${item.img[0]}" alt="photo" class="!w-[180px] mx-auto cursor-pointer" />
+                        <img src="${item.img[0]}" alt="photo" class="!w-[180px] min-h-[166px] mx-auto cursor-pointer" />
                     </a>
                     <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] block font-[600] text-center mb-5 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                     <div class="flex justify-center items-center mb-5">
