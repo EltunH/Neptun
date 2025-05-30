@@ -42,6 +42,11 @@ async function getProductId(id) {
     return await res.json()
 }
 
+async function getSearch(name) {
+    const res = await fetch(`${configObject.base}/products/search/?name=${name}`)
+    return await res.json()
+}
+
 async function verifyToken() {
     const res = await fetch(`${configObject.base}/auth/verify-token`, {
         headers: {
@@ -117,6 +122,7 @@ export {
     getCategoryById,
     getSubCategoryId,
     getProductId,
+    getSearch,
     login,
     verifyToken,
     register,

@@ -112,10 +112,10 @@ function slideShow(id, data) {
         elem.innerHTML += `
             <article class="swiper-slide rounded-lg overflow-hidden">
                 <div class="relative w-full p-[0_10px_17px]">
-                    <a href="pages/details.htm?id=${item.id}" class="block">
+                    <a href="pages/details.htm?id=${item.id}" class="block pt-[10px]">
                         <img src="${item.img[0]}" alt="photo" class="!w-[180px] min-h-[166px] mx-auto cursor-pointer" />
                     </a>
-                    <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] block font-[600] text-center mb-5 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
+                    <a href="pages/details.htm?id=${item.id}" class="uppercase text-[10px] h-[30px] block font-[600] text-center mb-5 mt-3 w-[73%] mx-auto hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                     <div class="flex justify-center items-center mb-5">
                         ${id == 'discDiv' ?
                         `<div class="w-[38px] h-[38px] rounded-full bg-[#ffd9c0] group-hover:bg-[#ff8300] mr-2 grid place-items-center">

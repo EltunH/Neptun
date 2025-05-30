@@ -22,10 +22,6 @@ window.registration = () => {
         })
 }
 
-
-
-
-
 function validation() {
     emailInp.style.border = '1px solid #ccc'
     passwordInp.style.border = '1px solid #ccc'

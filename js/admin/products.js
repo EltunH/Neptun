@@ -1,4 +1,4 @@
-import { addToProduct, delProduct, getAllProductsFetch, getCategoriesFetch, putProduct } from "../../services/api.js"
+import { addToProduct, delProduct, getAllProductsFetch, getCategoriesFetch, getSearch, putProduct } from "../../services/api.js"
 
 const openDiv = document.getElementById('openDiv')
 const tblProduct = document.getElementById('tblProduct')
@@ -13,6 +13,9 @@ const prodDesc = document.getElementById('prodDesc')
 const prodMeta = document.getElementById('prodMeta')
 const btnAdd = document.getElementById('btnAdd')
 const delModal = document.getElementById('delModal')
+const searchInp = document.getElementById('searchInp')
+const openDivSide = document.getElementById('openDivSide')
+const leftDiv = document.getElementById('leftDiv')
 
 const params = new URLSearchParams(location.search)
 let count = 0
@@ -48,7 +51,7 @@ window.addProduct = () => {
                 alert('Məhsul əlavə edildi!')
                 clearValues()
             }
-        }).finally(_ => btnAdd.disabled = false)
+        }).finally(f => btnAdd.disabled = false)
 }
 
 function clickPage(arg) {
@@ -63,9 +66,15 @@ function clickPage(arg) {
                 btnChangePage(res.totalPages)
                 count++
             }
-            tblProduct.innerHTML = ''
-            res.products.map(item => {
-                tblProduct.innerHTML += `
+            showTable(res.products)
+        })
+}
+clickPage()
+
+function showTable(data) {
+    tblProduct.innerHTML = ''
+    data.map(item => {
+        tblProduct.innerHTML += `
                 <tr class="hover:bg-gray-200">
                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <div class="flex items-center">
@@ -110,11 +119,21 @@ function clickPage(arg) {
                         </div>
                     </td>
                 </tr>`;
-            })
-        })
+    })
 }
-clickPage()
 
+window.axtar = () => {
+    let name = searchInp.value
+    if (name.trim().length > 1) {
+        getSearch(name).then(res => {
+            showTable(res.products.slice(0, 50))
+        })
+    }
+    if (name.trim().length == 0) {
+        getAllProductsFetch(100, page)
+            .then(res => showTable(res.products))
+    }
+}
 
 function btnChangePage(arg) {
     pageBtn.innerHTML = ''
@@ -131,11 +150,12 @@ function btnChangePage(arg) {
 }
 
 window.openCloseProduct = (elem) => {
+    openDiv.classList.toggle('!grid')
+    document.body.classList.toggle('overflow-hidden')
+
     ID = elem?.subcategoryId ?? null
     btnAdd.innerHTML = elem ? 'Dəyişiklik et' : 'Əlavə et'
 
-    openDiv.classList.toggle('!grid')
-    document.body.classList.toggle('overflow-hidden')
     if (elem) {
         prodName.value = elem.name
         prodCat.value = elem.categoryId
@@ -159,7 +179,7 @@ function changeProduct(arg) {
     btnAdd.disabled = true
     putProduct(arg.id, getValues())
         .then(res => {
-            if(res.id) alert('Dəyişiklik uğurlu oldu.')
+            if (res.id) alert('Dəyişiklik uğurlu oldu.')
             clickPage(page)
         })
         .finally(_ => {
@@ -176,8 +196,14 @@ window.openDelModal = (arg) => {
 
 window.sil = () => {
     delProduct(ID)
-        .then(res => res.error ? alert('Server xətası developelə əlaqə saxlayın') : '')
+        .then(res => res.error ? alert('Server xətası developerlə əlaqə saxlayın') : '')
     openDelModal()
+}
+
+window.openCloseSide = () => {
+    document.body.classList.toggle('overflow-y-hidden')
+    openDivSide.classList.toggle('hidden')
+    leftDiv.classList.toggle('left-[0]')
 }
 
 function loadPage() {

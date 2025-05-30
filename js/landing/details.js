@@ -25,7 +25,7 @@ function showDetails(data) {
 
     detailsContent.innerHTML = `
         <div>
-            <img src="${data.img[0]}" alt="photo" class="w-full md:w-[379px] mlg:w-[470px]" />
+            <img src="${data.img[0]}" alt="photo" class="w-full md:w-[379px] mlg:w-[470px] md:h-[379px] mlg:h-[470px]" />
         </div>
         <div class="max-md:py-3">
             <h1 class="text-[18px] font-bold capitalize mb-[7px]">${data.name}</h1>

@@ -18,6 +18,11 @@ window.girisEt = () => {
                 passwordInp.value = ''
                 return alert('Mail və ya şifrə yanlışdır!')
             }
+            if (res.errors) {
+                emailInp.value = ''
+                passwordInp.value = ''
+                return alert('Mail ən azı 3 simvol, parol ən azı 8 simvol uzunluğunda olmalıdır!')
+            }
             if (res.status) {
                 localStorage.setItem('token', res.token)
                 localStorage.setItem('status', res.status)
