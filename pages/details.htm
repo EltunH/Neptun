@@ -25,15 +25,20 @@
                                 src="/img/logo.svg" alt="neptun-logo" />
                         </a>
                         <div class="flex items-center justify-start relative">
-                            <input type="text" placeholder="Məhsulu axtarın"
+                            <input onkeydown="goSearchPage(event)" oninput="searchProduct()"
+                                onclick="event.preventDefault()" id="searchInp" type="text"
+                                placeholder="Məhsulu axtarın"
                                 class="py-[10px] text-[13px] max-xxs:text-[10px] max-sm:w-[280px] max-xxs:w-[150px] max-xs:w-[244px] max-xms:py-[5px] max-xxs:px-7 outline-none px-10 border border-[#ff8230] rounded-[20px] max-w-full w-[380px]" />
                             <i
                                 class="absolute top-30 mr-3 ml-1 text-[16px] max-xxs:text-[13px] left-[10px] text-[#ff8230] fa-solid fa-magnifying-glass"></i>
                             <div>
-                                <button
-                                    class="absolute h-[31px] xms:top-[12px] xms:h-[40px] max-xxs:text-[10px] max-xms:top-[17px] right-0 max-xxs:py-[6px] max-xxs:top-[18px] bg-[#ff8230] text-white max-xms:py-[5px] py-[11px] max-xms:px-[10px] px-4 rounded-[20px] text-[14px]">
+                                <button onclick="goSearchPage(event)" id="searchBtn"
+                                    class="absolute h-[31px] max-xxs:h-[27px] xms:top-[12px] xms:h-[40px] max-xxs:text-[10px] max-xms:top-[17px] right-0 max-xxs:py-[6px] max-xxs:top-[18px] bg-[#ff8230] text-white max-xms:py-[5px] py-[11px] max-xms:px-[10px] px-4 rounded-[20px] text-[14px]">
                                     Axtar
                                 </button>
+                                <div id="searchDiv" onclick="event.preventDefault()"
+                                    class="hidden max-h-[250px] bg-white sm:max-h-[350px] top-full left-0 z-[999] overflow-y-auto absolute rounded-md shadow-md m-auto w-[380px] max-sm:w-[280px] max-xxs:w-[150px] max-xs:w-[244px]">
+                                </div>
                             </div>
                         </div>
                     </div>

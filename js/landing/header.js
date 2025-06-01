@@ -1,8 +1,11 @@
-import { getCategoriesFetch } from "../../services/api.js"
+import { getCategoriesFetch, getSearch } from "../../services/api.js"
 
 const openCloseTop = document.getElementById('openCloseTop')
 const openCloseBottom = document.getElementById('openCloseBottom')
 const openCloseBottomDiv = document.getElementById('openCloseBottomDiv')
+const searchInp = document.getElementById('searchInp')
+const searchDiv = document.getElementById('searchDiv')
+const searchBtn = document.getElementById('searchBtn')
 
 const cache = JSON.parse(localStorage.getItem("categoryArr"))
 const categoryArr = cache || []
@@ -75,7 +78,7 @@ function handleCategory() {
                         </div>
                         
                         ${item.subcategory.length > 0 ?
-                        `<div class="scrollBar absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-[160px] h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
+                    `<div class="scrollBar absolute left-[100%] top-0 border-l-orange-500 flex flex-col border-l-2 w-[160px] h-0  overflow-hidden bg-white shadow-2xl text-[11px] text-black opacity-0 translate-x-[-10px] transition-all duration-300 ease-in-out group-hover:h-[200px] group-hover:overflow-y-scroll group-hover:p-2 group-hover:opacity-100 group-hover:translate-x-0">
                             ${item.subcategory.map(sub => `<a href="/pages/category.htm?id=${sub.id}&page=1&limit=12" class="block px-2 py-1 text-[14px] hover:text-[#ff8230] capitalize hover:underline">${sub.categoryName}</a>`).join("")}
                         </div>`: ''}
                 </li>`;
@@ -93,3 +96,44 @@ function handleCategory() {
 }
 handleCategory()
 
+window.searchProduct = () => {
+    let name = searchInp.value
+    if (name.trim().length > 1) {
+        searchDiv.classList.remove('hidden')
+        getSearch(name).then(res => {
+            showSearch(res.products.slice(0, 5))
+        })
+    }
+    if (name.trim().length == 0) searchDiv.classList.add('hidden')
+}
+
+function showSearch(data) {
+    searchDiv.innerHTML = ''
+    if (data.length) {
+        data.slice(0, 5).map(item => {
+            searchDiv.innerHTML += `
+                <a class="flex gap-5 items-center p-3 border-b w-full bg-gray-50 hover:bg-gray-200 transition-all"
+                    href="/pages/details.htm?id=${item.id}">
+                    <img src="${item.img[0]}" class="w-16 h-16 object-cover rounded-md" alt="${item.name}">
+                    <div>
+                        <h3 class="text-sm hover:text-green-700 capitalize text-md transition-all">
+                            ${item.name}</h3>
+                        <p class="text-sm font-bold text-green-900">${item.totalPrice.toFixed(2)} ₼</p>
+                    </div>
+                </a>`
+        })
+    }
+    else searchDiv.innerHTML = '<p class="py-5 px-2 text-center text-red-600">Məhsul tapılmadı</p>'
+}
+
+window.goSearchPage = (e) => {
+    let name = searchInp.value
+    if((e.keyCode == 13 || !e.keyCode) && name.trim().length > 1) location.href = `/pages/search.htm?name=${name}`
+}
+
+document.body.addEventListener("click", function (event) {
+    if (!searchInp.contains(event.target) && !searchBtn.contains(event.target)) {
+        searchDiv.classList.add('hidden')
+        console.log('sa')
+    }
+})

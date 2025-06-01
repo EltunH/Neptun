@@ -1,8 +1,10 @@
-import { getSubCategoryId } from "../../services/api.js"
+import { getCategoryById, getSubCategoryId } from "../../services/api.js"
 import { addToBasket } from "./basket.js"
 import { openFtrUl } from "./footer.js"
 import { addToWishList } from "./wishlist.js"
 
+const catName = document.getElementById('catName')
+const subCatName = document.getElementById('subCatName')
 const sideHiddenDiv = document.getElementById('sideHiddenDiv')
 const sideLeftDiv = document.getElementById('sideLeftDiv')
 const prodContent = document.getElementById('prodContent')
@@ -58,6 +60,7 @@ window.btnChangePage = (arg) => {
 function getCatProdct(arg) {
     getSubCategoryId(myCatId, limit, page)
         .then(res => {
+            console.log(res)
             data.length = copyData.length = 0
             data.push(...res.products)
             copyData.push(...res.products)
@@ -71,16 +74,17 @@ function getCatProdct(arg) {
 }
 getCatProdct(true)
 
+
 function showCatProdct() {
     prodContent.innerHTML = ''
     data.forEach(item => {
         prodContent.innerHTML += `
             <article class="relative w-full rounded-[8px] p-[0_10px_17px] bg-white">
-                <a href="details.htm?id=${item.id}">
+                <a href="/pages/details.htm?id=${item.id}">
                     <img src="${item.img[0]}" alt="photo" class="!w-[255px] mx-auto cursor-pointer" />
                 </a>
                 <p class="uppercase text-[10px] h-[30px] mt-[10px] font-[600] text-center mb-[10px] w-[73%] mx-auto">
-                    <a href="details.htm?id=${item.id}" class="cursor-pointer hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
+                    <a href="/pages/details.htm?id=${item.id}" class="cursor-pointer hover:text-[#ff8300]">${item.name.length > 30 ? item.name.slice(0, 30) + '...' : item.name}</a>
                 </p>
                 <p class="text-[22px] font-[700] font-sans text-center mb-[10px]">${item.totalPrice.toFixed(2)}₼</p>
                 <div class="flex justify-center items-center">
