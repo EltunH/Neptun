@@ -134,6 +134,5 @@ window.goSearchPage = (e) => {
 document.body.addEventListener("click", function (event) {
     if (!searchInp.contains(event.target) && !searchBtn.contains(event.target)) {
         searchDiv.classList.add('hidden')
-        console.log('sa')
     }
 })
